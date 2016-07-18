@@ -1,0 +1,15 @@
+<% if @videos.nil? %>
+
+<div>Sie haben noch kein Video bereitgestellt das Sie auf der Karte einzeichnen k&ouml;nnen. Bitte laden Sie zuerst ein Video <%= link_to "hoch", :controller => "web", :action => "upload" %>!</div>
+
+<% else %>
+
+<object width="800" height="515">
+<param name="movie" value="http://www.vidmap.de/api?vmapp=editor&vmkey=7f388c7c6b6fd7701a87a3f0b74d9ee1"></param>
+<param name="allowFullScreen" value="false"></param>
+<param value="transparent" name="wmode"></param>
+<param name='flashVars' value=''/>
+<embed width="800" height="515" src="http://www.vidmap.de/api?vmapp=editor&vmkey=7f388c7c6b6fd7701a87a3f0b74d9ee1" type="application/x-shockwave-flash" flashVars="" wmode="transparent" allowscriptaccess="always" allowfullscreen="false"></embed>
+</object>
+
+<% end %>

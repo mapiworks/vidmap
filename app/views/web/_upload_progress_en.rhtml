@@ -1,0 +1,9 @@
+<div><%
+case upload_item.transcoder_state
+	when 0 %>"<%= upload_item.name %>" has been scheduled for transcoding process. <img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> <noscript><%= link_to "refresh", :controller => "web", :action => "videos" %></noscript><%
+	when -1 %>Upload of "<%= upload_item.filename %>" failed. Video "<%= upload_item.name %>" could not be transcoded (Error: <%= upload_item.code %>).<%
+	when 1 %>"<%= upload_item.name %>" will appear in your video list shortly. <img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> <noscript><%= link_to "refresh", :controller => "web", :action => "videos" %></noscript><%
+	when 2	%>"<%= upload_item.name %>" is now available in your video list.<%
+	else %>Your video "<%= upload_item.name %>" could not be transcoded (Error: <%= upload_item.code %>).<%
+end 
+%></div>

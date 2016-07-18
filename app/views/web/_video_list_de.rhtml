@@ -1,0 +1,107 @@
+<%
+n = items.length.to_f
+s = rows.to_f
+vid = 0
+cols = (n/s).ceil
+
+if defined? style_videolist_item
+	item_style = style_videolist_item
+else
+	item_style = ""
+end
+
+%>
+
+<div class="videolist_line">
+<%
+for i in (1 .. cols)
+	
+	if i == cols
+		m = [s - ((i*s) % n), items.length].min
+	else
+		m = s
+	end
+	
+	%>
+	<div>
+	<%
+	
+	for j in (1 .. m)
+		
+		if items[vid].youtube
+			img_height = 84
+			img_width = 151
+		else
+			if items[vid].DARY / items[vid].DARX > 16/9
+			img_height = 84
+			img_width = [img_height / items[vid].DARY * items[vid].DARX, 151].max
+		else
+			img_width = 151
+			img_height = [img_width / items[vid].DARX * items[vid].DARY, 84].max
+		end
+	
+	end
+	
+		margin_top = ((84-img_height)/2).floor
+		
+		%>
+		<div class="videolist_item leftfloat" <%= raw j > 1 ? 'style="margin-left:10px; padding:0px; '+item_style+'"' : 'style="margin-left:0px; margin-right:0px; padding:0px; '+item_style+'"' %>>
+			<div class="videolist_thumb">
+				
+				<%
+					if items[vid]['start_locality_de']
+						if items[vid].start_locality_de == items[vid].end_locality_de 
+							@description = 'Video von ' + items[vid].start_locality_de.to_s + "/" + items[vid].start_country_de.to_s
+						else
+							if items[vid].start_country_de == items[vid].end_country_de
+								@description = 'Video von ' + items[vid].start_locality_de.to_s + ' nach ' + items[vid].end_locality_de.to_s  + "/" + items[vid].start_country_de.to_s
+							else
+								@description = 'Video von ' + items[vid].start_locality_de.to_s + "/" + items[vid].start_country_de.to_s + ' nach ' + items[vid].end_locality_de.to_s + "/" + items[vid].end_country_de.to_s
+							end
+						end
+					else
+						@description = "watch"	
+					end
+				%>
+				
+				<a title="Vidmap f&uuml; <%= items[vid].name %>" href="<%= url_for(:controller => 'web', :action => 'video', :video_id =>items[vid].id, :language_id => @vm_language, :desc => @description.gsub(/[^a-z0-9]+/i, '-')) %>">
+					<%
+					if items[vid].youtube
+					%>
+						<img alt="Geotagging <%= items[vid].name %>" style="margin-top: <%= margin_top %>px" width="<%= img_width %>" height="<%= img_height %>" src="http://img.youtube.com/vi/<%= raw items[vid].filename_img %>/2.jpg"/>
+					<%
+					else
+					%>
+						<img alt="Geotagging <%= items[vid].name %>" style="margin-top: <%= margin_top %>px" width="<%= img_width %>" height="<%= img_height %>" src="<%= url_for(:controller => 'web', :action => 'image', :image => items[vid].filename_img) %>"/>
+					<%
+					end
+					%>
+				</a>
+				<% if !items[vid].public %><div id="private"></div><% end %>
+			</div>
+			<div class="videolist_label"><a href="<%= url_for(:controller => 'web', :action => 'video', :video_id =>items[vid].id, :language_id => @vm_language, :desc => @description.gsub(/[^a-z0-9]+/i, '-')) %>"><%= items[vid].name %></a></div>
+			
+			<div>
+			<div class="videolist_duration_distance leftfloat"><%= formatDuration(items[vid].duration) %></div>
+			<div class="videolist_duration_distance rightfloat"><%= formatDistance(items[vid].distance) %></div>
+			<div class="clearfloat"></div>
+			</div>
+			
+			<div>
+			<div class="videolist_duration_distance leftfloat"><%= number_with_delimiter(items[vid].times_played.to_i, :delimiter => ".") %> <%= items[vid].times_played.to_i == 1 ? "Abruf" : "Abrufe" %></div>
+			<div class="videolist_duration_distance rightfloat"><%= formatExistanceSince(items[vid].existance_days, {:new => "Neu!", :day => "Tag", :days => "Tage", :week => "Woche", :weeks => "Wochen", :month => "Monat", :months => "Monate", :year => "Jahr", :years => "Jahre"}) %></div>
+			<div class="clearfloat"></div>
+			</div>
+			
+		</div>
+		<%	
+		vid = vid + 1
+	end
+	
+	%>
+	<div class="clearfloat"></div></div>
+	<%
+	
+end
+%>
+</div>

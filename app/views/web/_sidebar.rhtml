@@ -1,0 +1,48 @@
+<div id="sidebar">
+
+ 	
+        
+		<% if !logged_in? %>
+           
+           <h1><%= @vm_string_table[:login] %></h1>
+			<p>
+            <% form_tag :controller => 'user_login', :action => 'login' do %>
+            
+            
+                <p><label for="login">Login</label><br/>
+                <%= text_field_tag 'login', @login, :size => 15 %></p> 
+                
+                <p><label for="password"><%= @vm_string_table[:password] %></label><br/>
+                <%= password_field_tag 'password', '', :size => 15 %></p>
+                
+                <!--
+                <p><label for="remember_me"><%= @vm_string_table[:remember_me] %>:</label>
+                <%= check_box_tag 'remember_me','1',true, {} %></p>
+            	-->
+                
+                <%= submit_tag 'Log in' %>
+    
+            <% end %>    
+            
+            <%= link_to @vm_string_table[:register], :controller => 'user_login', :action => 'signup'%>
+        	 <div id="login_message"><%=@login_message%><%= flash[:login_message] %></div>
+			
+            </p> 
+        <% end %>        
+        
+	   
+	
+
+
+    <h1><%= @vm_string_table[:contact] %></h1> 
+    <p>info (at) vidmap.de</p>
+    
+    <h1>Vidmap Blog:</h1> 
+    <p><a href="http://vidmap.blogspot.com" target="_blank">vidmap.blogspot.com</a></p>
+    
+    <h1><%= @vm_string_table[:beta_partners] %></h1>
+    <p><a href="http://bikecam.ch/diverses.htm" target="_blank">Bikecam.ch</a><p>
+    
+    
+    
+</div>

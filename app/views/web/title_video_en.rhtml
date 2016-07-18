@@ -1,0 +1,11 @@
+<% if @hasRoute && @route.start_locality_en && @route.start_country_en && @route.end_locality_en && @route.end_country_en %>
+		<% if @route.start_locality_en == @route.end_locality_en %>
+			Video of <%=@route.start_locality_en %> (<%=@route.start_country_en %>)
+		<% else %>
+				<% if @route.start_country_en == @route.end_country_en %>
+						Video from <%=@route.start_locality_en %> to <%=@route.end_locality_en %> (<%=@route.start_country_en %>)
+				<% else %>
+						Video from <%=@route.start_locality_en %> (<%=@route.start_country_en %>) to <%=@route.end_locality_en %> (<%=@route.end_country_en %>)
+				<% end %>
+		<% end %>
+<% end %>

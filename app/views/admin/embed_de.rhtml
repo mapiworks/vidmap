@@ -1,0 +1,65 @@
+<p>
+<b>Auf diesen Seiten sind Ihre Videos im Moment abrufbar:<br></b>
+<div id="api_keys">
+    <% if @api_keys.length == 0 %>
+    <div id="api_item">Keine</div>
+    <% else @api_keys.each{ |item| %>
+    <div id="api_item">
+        <div id="api_server_name"><%=item.server%></div>
+        <div id="api_remove" class="rightfloat"><a href="<%= url_for(:controller => 'web', :action => 'embed', :remove_id => item.id) %>">entfernen</a></div>
+        <div class="clearfloat"></div>
+    </div>
+    <% } end%>
+</div>
+</p>
+<p></p>
+<div><p><b>Code generieren:</b></p></div>
+<div id="api_embed">
+	<form action="/web/embed" id="embed_form" name="embed_form" method="post" enctype="application/x-www-form-urlencoded" target="_self">
+        <div class="leftfloat">
+    
+                <div id="videos">
+                        <div id="api_route_checkbox" class="leftfloat">&nbsp;</div>
+                        <div id="api_route_name" class="leftfloat"><b>Video ausw&auml;hlen</b></div>
+                        <div id="api_route_image" class="leftfloat"><b>Bild</b> </div>
+                        <div class="clearfloat"></div>
+                </div>
+                    
+                <%
+				if @embed.length == 0
+				%>
+					<div id="api_route_item">Keine Strecke verf&uuml;gbar.</div> 
+                <%
+                else @embed.each{ |item|
+                %>
+                    <div id="api_route_item">
+                    	<div id="api_route_checkbox" class="leftfloat"><%= check_box_tag("routes[]",  item.id) %></div>
+                        <div id="api_route_name" class="leftfloat"> <%= item.name %> </div>
+                        <div id="api_route_image" class="leftfloat"><img class="thumbs" width="80px" height="60px"  src="<%= url_for(:controller => 'web', :action => 'image', :image => item.filename_img) %>"></div>
+                      <div class="clearfloat"></div>
+                    </div>
+                <%
+                } end
+                %>
+    
+        </div>
+        
+        <div class="leftfloat">
+        
+            <div><b>Internetseite:</b></div>
+            <input name="server" type="text" size="39" id="server" />
+            <input type="submit" value="Code generieren"/>
+            <p></p>
+            <div><b>F&uuml;gen Sie diesen Code auf Ihrer Seite ein:</b></div>
+            <input  name="route_code" type="text" size="56" id="route_code" readonly="" value='<% if @api_key && @route_ids%><object width="700" height="295" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="http://www.vidmap.de/api?vmkey=<%= @api_key %>&vmapp=player"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param value="transparent" name="wmode"></param><param name="flashVars" value="routes=<%= @route_ids %>"/><embed src="http://www.vidmap.de/api?vmkey=<%= @api_key %>&vmapp=player" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="routes=<%= @route_ids %>" wmode="transparent" allowscriptaccess="always" allowfullscreen="false" width="700" height="295"></embed></object><% else %>Bitte Internetseite angeben.<% end %>' onclick="javascript:document.embed_form.route_code.focus();document.embed_form.route_code.select();"/>
+
+      </div>
+        
+        <div class="clearfloat"></div>
+	</form>
+</div>
+
+<script>
+	document.embed_form.server.focus();
+    document.embed_form.server.select();
+</script>

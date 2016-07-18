@@ -1,0 +1,20 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title(@vm_string_table[:web_title_index].sub("&szlig;","ß").sub("&Uuml;","Ü").sub("&uuml;","ü").sub("&Ouml;","Ö").sub("&ouml;","ö").sub("&Auml;","Ä").sub("&auml;","ä"))
+    xml.link("http://" + @top_level_domain + ".vidmap.de")
+    xml.description(@vm_string_table[:site_description].sub("&szlig;","ß").sub("&Uuml;","Ü").sub("&uuml;","ü").sub("&Ouml;","Ö").sub("&ouml;","ö").sub("&Auml;","Ä").sub("&auml;","ä"))
+    xml.language(@vm_string_table[:feed_lang])
+      for item in @new_videos
+        xml.item do
+          xml.title(item.title)
+          xml.description(formatRouteSubtitle(item, "<div id='Video_Places'>Video captured in <b><city></b> (<country>).</div>", "<div id='Video_Places'>Video captured from <b><city1></b> to <b><city2></b> (<country>).</div>", "<div id='Video_Places'>Video captured from <b><city1></b>  (<country1>) to <b><city2></b> (<country2>).</div>"))      
+          xml.author(item.user_name)  
+					xml.category(item.movement_type)               
+          xml.pubDate(item.submission_date)
+          xml.link("http://" + @top_level_domain + ".vidmap.de/web/video?video_id=" + item.video_id.to_s)
+          xml.guid("http://" + @top_level_domain + ".vidmap.de/web/video?video_id=" + item.video_id.to_s)
+        end
+      end
+  }
+}

@@ -1,0 +1,727 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2014 MAPI.WORKS - Mario Pilz
+ * URL: www.mapiworks.com
+ * MAIL: mario@mapiworks.com
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of  the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ * FITNESS FOR  A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+ * IN THE  SOFTWARE.
+ */
+ 
+@charset "UTF-8";
+
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+body  {
+	font: 100% 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000; 
+}
+
+
+
+/* HTML5 video */
+
+#Media_Content {
+	position: relative;
+	width: 100%;
+	min-height: 250px;
+}
+
+.map_canvas {
+	height:200px;
+	width: 200px;
+	right: 0px;
+	bottom: 100px; //35px;
+	margin:0;
+	padding:0;
+	position: absolute;
+	z-index: 2;
+	margin: 0px;
+	padding: 0px;
+	
+	//mask: url("http://html5videoguide.net/code_c5_1.svg#c1") 12 12 12 12 stretch stretch;;
+	//-webkit-mask-box-image: url("http://html5videoguide.net/code_c5_1.svg") 12 12 12 12 stretch stretch;
+	//-webkit-linear-gradient(black, transparent);
+	
+	//mask: url(#masking);
+	-webkit-mask-box-image: -webkit-radial-gradient(white, white, white, white,white,white,white,white,white,transparent 70%);
+}
+
+.map_canvas_editor {
+	height:300px;
+	width: 100%;
+	padding-bottom: 10px;
+	margin:0;
+	padding:0;
+	//position: absolute;
+	z-index: 2;
+
+	
+	//mask: url("http://html5videoguide.net/code_c5_1.svg#c1") 12 12 12 12 stretch stretch;;
+	//-webkit-mask-box-image: url("http://html5videoguide.net/code_c5_1.svg") 12 12 12 12 stretch stretch;
+	//-webkit-linear-gradient(black, transparent);
+	
+	//mask: url(#masking);
+	//-webkit-mask-box-image: -webkit-radial-gradient(white, white, white, white,white,white,white,white,white,transparent 70%);
+}
+      
+#video, #video_youtube {
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;	
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	min-height: 250px;
+	
+}
+
+.gm_attr {
+z-index: 3;
+position: absolute;
+width: 300px;
+height: 40px;
+bottom: 106px;
+right: 5px;
+}
+
+.gm_attr_editor {
+z-index: 3;
+position: absolute;
+width: 300px;
+height: 40px;
+top: 260px;
+right: 5px;
+}
+
+
+.location {
+	margin-top: 10px;
+	
+	color: #555;
+	height: 25px;
+	width: 300px;
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	left: 60px;
+	
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.save {
+	margin-top: 10px;
+
+	height: 25px;
+	width: 80px;
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	right: 120px;
+
+	line-height: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cancel {
+	margin-top: 10px;
+
+	height: 25px;
+	width: 80px;
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	right: 20px;
+
+	line-height: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* SLIDESHOW */
+
+.slideshow {
+	position:absolute;
+}
+
+.slide {
+	
+}
+
+/* SOCIAL */
+
+
+.connect_widget_button_count_count {
+	font-size:20px;
+}
+
+.liketext {
+	font-size:20px;
+}
+
+/* CLOUD */
+
+.cloud1 {
+	font-size:10px;
+	text-decoration:none;
+}
+
+.cloud1:hover {
+	text-decoration:underline;
+}
+
+.cloud2 {
+	font-size:11px;
+	text-decoration:none;
+}
+
+.cloud2:hover {
+	text-decoration:underline;
+}
+
+.cloud3 {
+	font-size:13px;
+	text-decoration:none;
+}
+
+.cloud3:hover {
+	text-decoration:underline;
+}
+
+.cloud4 {
+	font-size:15px;
+	text-decoration:none;
+}
+
+.cloud4:hover {
+	text-decoration:underline;
+}
+
+.cloud5 {
+	font-size:17px;
+	text-decoration:none;
+}
+
+.cloud5:hover {
+	text-decoration:underline;
+}
+
+.cloud6 {
+	font-size:18px;
+	text-decoration:none;
+}
+
+.cloud6:hover {
+	text-decoration:underline;
+}
+/*********/
+
+/* HELP */
+.help {
+	width: 695px;
+}
+
+.help li {
+	font-weight:bold;
+}
+
+.help a {
+	text-decoration:none;
+}
+
+.help a:hover{
+	text-decoration:underline;
+}
+
+
+/*******/
+td.column {
+	padding:0;
+	vertical-align:top;
+}
+
+.vidmap  #Content { 
+	width:900px;
+	padding:20px;
+	border-left:1px solid #CCCCCC;
+	border-top:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	background-color:#F9FFED;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-bottomleft:8px;
+	-webkit-box-shadow: -2px 1px 8px #999999;
+} 
+
+.vidmap  #Sidebar { 
+	width:210px;
+	border-left: 1px solid #E0E0E0;
+	padding:20px;
+	border-right:1px solid #CCCCCC;
+	border-top:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	background-color:#F3FFD9;
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-topright:8px;
+	-moz-border-radius-bottomright:8px;
+	-webkit-box-shadow: 2px 1px 8px #999999;
+} 
+
+.vidmap  #container { 
+	background: #FFFFFF;
+	/*margin: 0 auto;  the auto margins (in conjunction with a width) center the page */
+	margin: 0px 0px 0px 20px;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	position:relative;
+	width:990px;
+} 
+
+.vidmap #mainContainer {
+	position:relative;
+	margin:5px;
+	-moz-box-shadow: 0px 0px 8px;
+	border: 1px solid #CCCCCC;
+	-moz-border-radius:8px;
+	-moz-border-radius:8px;
+} 
+
+.Publisher_Links p {
+	font-size:12px;	
+}
+
+.vidmap #Video_Name {
+	font-size:19px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+.vidmap h1 {
+	font-size:24px;
+}
+
+.Place_Description {
+	font-size:16px;
+	text-align: justify;
+}
+
+.Video_Places h1 {
+	font-size:15px;
+	margin-bottom:0px;
+}
+
+.Video_Places h2 {
+	font-size:10px;
+	color:#999999;
+	margin-top:0px;
+}
+
+.shiny {
+	position:relative;
+	margin:0px;
+}
+
+.shiny span{
+	position:absolute;
+	display:block;
+	top:0;
+	left:0;
+	/*height:100%;
+	width:100%;*/
+	width:0px;
+	height:0px;
+	background:url(/images/gradients/shiny_gradient01.png) repeat-x;
+}
+
+* html .shiny span{
+	background-color:#ffffff;
+	background-color:transparent;
+	background-image: url(none.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/gradients/shiny_gradient01.png", sizingMethod="scale");
+}
+
+
+.video_editor_elements_handle {
+	cursor:pointer;
+	font-weight:bold;
+	margin-left:5px;
+}
+
+.video_editor_elements_handle img{
+	width: 15px;
+	height: 15px;
+}
+
+.vidmap  #header {  
+	width:1020px;
+} 
+
+.vidmap  #header_logo img{ 
+	border: 0px;
+	width: 195px;
+	height: 60px;
+} 
+
+.vidmap #header_logo {
+	float:left;
+	padding-top: 5px;
+	padding-left: 10px;
+} 
+
+.vidmap #header_functions  {
+	height:60px;
+}
+
+.vidmap #header_functions a {
+	text-decoration:none;
+	color:#000066;
+}
+
+.vidmap #header_functions a:hover {
+	text-decoration:underline;
+	color:#000066;
+}
+
+.vidmap #header_controls {
+	float:right;
+	padding:10px;
+	margin-right: 35px;
+	font-size:14px;
+}
+
+.vidmap #header_language {
+	padding-right:20px;
+	float:right;
+	margin-top: 2px;
+} 
+
+.vidmap #header_language img {
+	width: 20px;
+	height: 16px;
+} 
+
+.vidmap #header_help{
+	font-weight:bold;
+	padding-right:20px;
+	float:right;
+} 
+
+.vidmap #header_logout {
+	font-weight:bold;
+	float:right;
+} 
+
+.vidmap #header_account { 
+	font-weight:bold;
+	padding-right:20px;
+	float:right;
+} 
+
+.vidmap #header_user { 
+	font-weight:bold;
+	padding-right:20px;
+	float:right;
+} 
+
+.vidmap #header_login {
+	font-weight:bold;
+	margin-right:20px;
+	float:right;
+}
+
+.vidmap #header_register {
+	font-weight:bold;
+	margin-right:20px;
+	float:right;
+}
+
+/* ------- */
+.vidmap #login {
+	font-size:15px;
+} 
+
+.vidmap #password {
+	font-size:15px;
+} 
+
+.vidmap #login_message {
+	font-weight:bold;
+	color:#FF57FF;
+}
+
+.vidmap #misc {
+	padding-top: 30px;
+	font-size:12px;
+	color:#999999;
+	min-height: 90px;
+	margin: 0 auto;
+	width: 850px;
+	text-align:left;
+}
+
+.vidmap #misc a {
+	color:#999999;
+}
+
+.footerLinks {
+	float:left;
+	margin-right: 20px;
+}
+
+.footerLinks h1 {
+	font-size:12px;
+	margin:0px;
+}
+
+.footerLinks a{
+	text-decoration:none;
+}
+
+.vidmap #menu {
+	font-size:18px;
+	margin:15px 0px 2px 10px;
+}
+
+.vidmap #menuItem {
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-topright:10px;
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	border:1px solid #CCCCCC;
+}
+
+.vidmap #menuItemBare {
+	border:0px;
+}
+
+.menuItemBare {
+	padding:6px 12px 2px 20px;
+}
+
+.menuItemActivated {
+	padding:6px 12px 2px 20px;
+	-moz-box-shadow: inset 0px 0px 8px #111111;
+	-webkit-box-shadow: 0px -1px 5px #555555;
+	background-color:#E5FFAD;	
+}
+
+.menuItemHighlight {
+	padding:20px 12px 2px 20px;
+	-moz-box-shadow: inset 0px 0px 8px #111111;
+	-webkit-box-shadow: 0px -1px 5px #555555;
+	background-color:#E5FFAD;
+	position:relative;
+}
+
+.menuItemDisabled {
+	padding:6px 12px 2px 20px;
+	-moz-box-shadow: inset 0px 0px 8px #999999;
+	-webkit-box-shadow: 0px -1px 5px #999999;
+	background-color:#F2F2F2;
+	filter:DropShadow(offx=2, offy=2, color=#c0c0c0);
+}
+
+.menuItemActivated:hover {
+	background-color:#E5FFAD;
+}
+
+.menuItemDisabled:hover {
+	background-color:#E5FFAD;
+}
+
+.vidmap #menuItem a{
+	text-decoration:none;
+	color:#000000;
+}
+
+.vidmap #menuItem a:hover{
+	text-decoration:none;
+	color:#000000;
+}
+
+.vidmap #video_upload {
+	margin:0px;
+	padding:5px;
+	color:#000000;
+}
+
+.vidmap  #videos img { 
+	border:none;
+} 
+
+.videolist {
+	
+}
+
+.videolist_item{
+	margin: 5px 0px 5px 0px;
+	border: none;
+	width: 150px;
+}
+
+.videolist_thumb {
+	width: 150px;
+	height: 84px;
+	background-color:#000000;
+	margin: 2px;
+	overflow:hidden;
+	border: 1px solid #AAAAAA;
+	position:relative;
+	-moz-box-shadow: 4px 5px 15px #555555;
+	-webkit-box-shadow: 4px 5px 15px #555555;
+	box-shadow: 4px 5px 15px #555555;
+	
+	
+}
+
+.videolist_thumb img{
+	border: 0px;
+}
+
+.videolist_thumb #private {
+	position:absolute;
+	width:25px;
+	height:35px;
+	right: 1px;
+	top: 1px;
+	background-image:url('/images/icons/video_private_lock.png')
+}
+
+* html .videolist_thumb #private {
+	position:absolute;
+	width:25px;
+	height:35px;
+	right: 1px;
+	top: 1px;
+	background-image:url('none.gif');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/icons/video_private_lock.png", sizingMethod="scale");
+}
+
+.videolist_label{
+	font-size:12px;
+	overflow:hidden;
+	margin:2px;
+	height: 32px;
+}
+
+.videolist_label a{
+	text-decoration:none;
+	font-weight:bold;
+	width: 140px;
+	color: #333333;
+}
+
+.videolist_label a:hover{
+	text-decoration:underline;
+	font-weight:bold;
+	width: 140px;
+	color:#333333;
+}
+
+.sidebar_items {
+	color:#333333;
+	font-size:13px;
+	margin-bottom:5px;
+}
+
+.sidebar_items input {
+	font-size:13px;
+}
+
+.sidebar_titles {
+	color:#333333;
+	text-decoration:none;
+	font-size:16px;
+}
+
+.sidebar_titles b{
+	line-height:2em;
+}
+
+.sidebar_titles a{
+	color:#333333;
+	text-decoration:none;
+}
+
+.videolist_duration_distance{
+	font-size:11px;
+	color:#333333;
+	margin:2px;
+	cursor:default;
+}
+
+.video_list {
+	width: 110px;
+	margin: 5px;
+}
+
+.dashboard_column {
+	width:125px;
+	max-height:30px;
+	float:left;
+	font-size:10px;
+	overflow:hidden;
+}
+
+.vidmap #sample_image {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.vidmap #vm_upload_response {
+	color:#FF0000;
+}
+
+.vidmap  #footer { 
+	padding-top:10px;
+	text-align:left;
+} 
+
+.vidmap #bookmarks {
+	display:inline;
+}
+
+.leftfloat {
+	float:left;	
+}
+
+.rightfloat {
+	float:right;	
+}
+
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0px;
+    font-size: 1px;
+    line-height: 0px;
+	border:none;
+}
+
+.fieldWithErrors {
+	font-weight:bold;
+	color:#FF0000;
+	display:inline;
+}

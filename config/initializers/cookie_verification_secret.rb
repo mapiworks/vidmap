@@ -1,0 +1,1 @@
+Vidmap::Application.config.secret_token = '080adad8ce9666eeae9c74a69bb45091a4e5ca9e484e5ac9ebdf3cba5e7c2892b508291dfd7aec13baf6eec094e6a01a1f41f02be6f19033d4a719006c14c5c5'

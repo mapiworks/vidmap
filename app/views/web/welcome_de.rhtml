@@ -1,0 +1,11 @@
+<b>Willkommen<%=" " + current_user.login if logged_in?%>!</b>
+<p></p>
+Du bist nun Mitglied der Vidmap Community!
+<p></p>
+Klicke den "Neue Vidmap" Button um ein Video von Youtube zu importieren.
+<p></p>
+Z&ouml;gere nicht, uns deine Meinung und Verbesserungsvorschl&auml;ge unter feedback@vidmap.de zukommen zu lassen.
+
+<% content_for :sidebar do %>
+			<div><a href="/web/new"><img style="border:0px" src="/images/vidmap_get_started_de.jpeg"/></a></div><br>
+<% end %>

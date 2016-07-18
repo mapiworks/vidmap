@@ -1,0 +1,46 @@
+
+<div id="set_language">
+<% form_for :user do |f| -%>
+	<b><%= raw f.label :language, 'Bevorzugte Sprache' %>:</b><br/>
+	<select style="font-size: 16px;" name="language" id="language"><option selected="selected" value="de">Deutsch</option><option value="en">English</option></select>
+	<%= submit_tag 'Sichern', :style=>"font-size: 16px;" %>
+<% end -%>
+</div>
+
+<br>
+
+<div id="set_website">
+<% form_for :user do |f| -%>
+	<b><%=raw  f.label :website, 'Eigene Homepage' %>:</b><br/>
+	<input name="website" type="text" size="20" id="website" value="<%= current_user.website %>" style="font-size: 16px;" />
+	<%= submit_tag 'Sichern', :style=>"font-size: 16px;" %>
+<% end -%>
+<div style="font-size: 10px;">Tip: Deine Videos verweisen auf diese Seite. ("backlink").</div>
+</div>
+
+<br>
+
+<div id="api_keys">
+	<div style="width:450px"><b>Deine nicht &ouml;ffentlichen Videos k&ouml;nnen exklusiv auf diesen Internetseiten eingebettet werden:</b></div><br>
+	<% if @api_keys.length == 0 %>
+	<div id="api_item" style="font-size: 16px;">Keine Freigaben vorhanden.</div>
+	<% else @api_keys.each{ |item| %>
+		<div id="api_item" style="font-size: 16px;">
+			<span id="api_server_name"><%=item.server%></span>
+			<span id="api_remove"><%= link_to "Entfernen", {:controller => 'web', :action => 'account', :remove_id => item.id}, :confirm => "Wirklich entfernen?" %></span>
+			
+		</div>
+	<% } end%>
+
+	<form action="/web/account" id="embed_form" name="embed_form" method="post" enctype="application/x-www-form-urlencoded" target="_self">
+		http://<input name="server" type="text" size="20" id="server" style="font-size: 16px;" />
+		<input type="submit" value="Freigeben" style="font-size: 16px;"/>
+	</form>
+</div>
+
+<br>
+
+<div id="remove_user">
+	<b>Nutzerkonto l&ouml;schen:</b><br/>
+	<%= raw link_to "Jetzt löschen!", {:controller => 'user_login', :action => 'remove_user'}, :confirm => "Bist du sicher, dass du dein Konto & alle Inhalte bei Vidmap entfernen m&ouml;chtest?" %>
+</div>

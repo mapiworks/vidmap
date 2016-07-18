@@ -1,0 +1,45 @@
+<div id="set_language">
+<% form_for :user do |f| -%>
+	<b><%= raw f.label :language, 'Preverred language' %>:</b><br/>
+	<select style="font-size: 16px;" name="language" id="language"><option value="de">Deutsch</option><option selected="selected" value="en">English</option></select>
+	<%= submit_tag 'Save', :style=>"font-size: 16px;" %>
+<% end -%>
+</div>
+
+<br>
+
+<div id="set_website">
+<% form_for :user do |f| -%>
+	<b><%= raw f.label :website, 'Your Website' %>:</b><br/>
+	<input name="website" type="text" size="20" id="website" value="<%= current_user.website %>" style="font-size: 16px;" />
+	<%= submit_tag 'Save', :style=>"font-size: 16px;" %>
+<% end -%>
+<div style="font-size: 10px;">Hint: Your videos will link to this website ("backlink").</div>
+</div>
+
+<br>
+
+<div id="api_keys">
+	<div style="width:450px"><b>Your private videos can be embeded on these authorized websites:</b></div><br>
+	<% if @api_keys.length == 0 %>
+	<div id="api_item" style="font-size: 16px;">No authorized websites yet.</div>
+	<% else @api_keys.each{ |item| %>
+		<div id="api_item" style="font-size: 16px;">
+			<span id="api_server_name"><%=item.server%></span>
+			<span id="api_remove"><%= link_to "Remove", {:controller => 'web', :action => 'account', :remove_id => item.id}, :confirm => "Remove authorized server?" %></span>
+			
+		</div>
+	<% } end%>
+
+	<form action="/web/account" id="embed_form" name="embed_form" method="post" enctype="application/x-www-form-urlencoded" target="_self">
+		http://<input name="server" type="text" size="20" id="server" style="font-size: 16px;" />
+		<input type="submit" value="Authorize" style="font-size: 16px;"/>
+	</form>
+</div>
+
+<br>
+
+<div id="remove_user">
+	<b>Remove your user account:</b><br/>
+	<%= raw link_to "Delete now!", {:controller => 'user_login', :action => 'remove_user'}, :confirm => "Are you sure to delete your vidmap account?" %>
+</div>

@@ -1,0 +1,47 @@
+<p>
+Dashboard 
+</p>
+
+<div>Users:</div>
+<br>
+
+<div style="color:#FF5555">
+	<div style="font-weight:bold">
+		<div class="dashboard_column" style="width:60px">login</div>
+		<div class="dashboard_column" style="width:80px">last_login</div>
+		<div class="dashboard_column" style="width:120px">email</div>
+		<div class="dashboard_column" style="width:120px">website</div>
+		<div class="dashboard_column" style="width:60px">service</div>
+		<div class="dashboard_column" style="width:30px">Activation Sent</div>
+		<div class="dashboard_column" style="width:30px">Activated</div>		
+		<div class="dashboard_column" style="width:60px">error</div>
+		<div class="dashboard_column" style="width:40px">videos</div>
+		<div class="dashboard_column" style="width:40px">uploads</div>
+		<br class="clearfloat" />
+	</div>
+	
+	<%
+	@user_infos.each{ |info|
+	%>
+	
+	<div style="color:#FF5555">
+		<div class="dashboard_column" style="width:60px"><a style="color:#FF5555" href="<%= url_for(:controller => 'admin', :action => 'switch_user', :user_id => info.user_id) %>"><%= info.login %></a></div>
+		<div class="dashboard_column" style="width:80px"><%= info.last_login %>&nbsp;</div>
+		<div class="dashboard_column" style="width:120px"><%= info.email %>&nbsp;</div>
+		<div class="dashboard_column" style="width:120px"><%= info.website %>&nbsp;</div>
+		<div class="dashboard_column" style="width:60px"><%= info.service %>&nbsp;</div>
+		
+		<div class="dashboard_column" style="width:60px"><%= info.activation_mail_sent ?  "Yes" :  "No" %></div>
+		
+		<div class="dashboard_column" style="width:60px"><%= info.activated ?  "Yes" :  "No" %>&nbsp;<%= link_to("resend", {:controller => 'admin', :action => 'resend_activation_code', :user_id => info.user_id}) %>&nbsp;</div>
+		
+		<div class="dashboard_column" style="width:60px"><%= info.upload_errors_latest %>&nbsp;</div>
+		<div class="dashboard_column" style="width:40px"><%= info.video_count %>&nbsp;</div>
+		<div class="dashboard_column" style="width:40px"><%= info.upload_count %>&nbsp;</div>
+		<br class="clearfloat" />
+	</div>
+
+<%
+}
+%>
+</div>

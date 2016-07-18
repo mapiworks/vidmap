@@ -1,0 +1,219 @@
+<% content_for :header_scripts do %>
+	
+	<script>
+		google.maps.event.addDomListener(window, 'load', function(){init_vidmap(<%= @video ? @video.id.to_s : "false" %>, <%= @isOwner ? "true" : "false" %>)});	
+	</script>
+	
+	<script>
+		var editor = <%= @isOwner ? true : false %>
+	</script>
+	
+<% end %>
+
+<div><span id="Video_Name" class="jeditable"><%= @video.name %></span></div>
+<br>
+<div><span id="Video_Description" class="jeditable"><%= @video.description %></span></div>
+
+<p></p>
+
+<div id="Video_Places" class="Video_Places">
+	<%= render :partial => "web/places_video_en" %>
+</div>
+
+<script src="/api?vmkey=<%= @api_key %>&amp;vmapp=<%= @isOwner ? 'editor_html5' : 'player_html5' %>&amp;language_id=en&amp;<%= @video.youtube ? 'vmdesign=youtube' : '' %>"></script>
+
+
+<div id="Media_Content">
+	
+	<input id="location" class="location" placeholder="Gehe zu ..." type="text" style="display: none;"/>
+	<input id="save" class="save" value="Save" type="submit" style="display: none;"/>
+	<input id="edit" class="save" value="Edit" type="submit" style="display: none;"/>
+	<input id="cancel" class="cancel" value="Cancel" type="submit" style="display: none;"/>
+	
+	<p></p>
+	
+	<div id="map_canvas" class="<%= @isOwner ? 'map_canvas_editor' : 'map_canvas' %>"></div>
+	
+	<div id="video_youtube" style="display: none;"></div>	
+	<video id="video" webkit-playsinline preload="metadata" controls="play pause" style="display: none;" src="">HTML5 Video is required.</video>
+
+	<div id="gm_attr" class="<%= @isOwner ? 'gm_attr_editor' : 'gm_attr' %>">
+		
+		<div style="width: 62px; height: 26px; cursor: default;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" draggable="false" style="position: absolute; right: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; z-index: 3;"> 
+		</div>
+	
+	</div>
+	
+	<div style="clear:both;"></div>
+
+</div>
+
+<br>
+
+<!--
+<div id="Video_Content"> 
+	<% if @isOwner %>
+		<object width="725" height="311" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+		<param name="movie" value="http://dev.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=editor_single&amp;language_id=en&amp;<%= @video.youtube ? 'vmdesign=youtube' : '' %>"></param>
+		<param name="allowFullScreen" value="true"></param>
+		<param name="allowscriptaccess" value="always"></param>
+		<param value="transparent" name="wmode"></param>
+		<param name='flashVars' value='video=<%= @video.id.to_s %>'/>
+		<embed width="725" height="311" src="http://dev.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=editor_single&amp;language_id=en&amp;<%= @video.youtube ? 'vmdesign=youtube' : '' %>" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="video=<%= @video.id.to_s %>" wmode="transparent" allowscriptaccess="always" allowfullscreen="false"></embed>
+		</object>
+		<div style="font-size:12px"><b>Info:</b> To draw straight lines which are not aligned to any streets hold &lt;SHIFT&gt; key while placing or moving waypoints.</div>
+	<% elsif @isPublic %>
+		<object width="725" height="300" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+		<param name="movie" value="http://dev.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=player&amp;language_id=en&amp;<%= @video.youtube ? 'vmdesign=youtube' : '' %>"></param>
+		<param name="allowFullScreen" value="true"></param>
+		<param name="allowscriptaccess" value="always"></param>
+		<param value="transparent" name="wmode"></param>
+		<param name='flashVars' value='routes=[<%= @route.id.to_s %>]&amp;DisableVideoLink=1&amp;Autoplay=1&amp;debug=0'/>
+		<embed width="725" height="300" src="http://dev.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=player&amp;language_id=en&amp;<%= @video.youtube ? 'vmdesign=youtube' : '' %>" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="routes=[<%= @route.id.to_s %>]&amp;DisableVideoLink=1&amp;Autoplay=1&amp;debug=0" wmode="transparent" allowscriptaccess="always" allowfullscreen="false"></embed>
+		</object> 
+	<% end %>
+</div><br>
+-->
+
+<div id="Place_Description" class="Place_Description">
+	<% if @isAdmin && @route && @route.start_locality_en%>
+		<b>More about <%=@route.start_locality_en %></b>:<p></p> 
+		<span style="font-size:12px">
+			<span id="Video_Place_Description" class="jeditable"><%= @content %></span>
+		</span>
+		
+	<% else %>
+		<%= raw (@content  && @route && @route.start_locality_en)  ?  '<b>More about ' + @route.start_locality_en + '</b>:<p></p><span style="font-size:12px">' + @content + "</span>": ""%>
+	<% end %>
+	
+</div>
+
+<% content_for :sidebar do %>
+			<%= @sidebar_video %>
+			
+			<% if @isAdmin %>
+				<input id="is_public" name="is_public" onclick="update_visibility()" type="checkbox" <% if @video.visible==1 %> checked <% end %>/> Visible
+			<% end %>
+<% end %>
+
+<p></p>
+
+<div class="Publisher_Links">
+	<% if !@publisher_links.nil? && @publisher_links.size > 0%>
+		<span style="font-size:16px"><b>Further Information And Links:</b></span>
+	<% end %>
+	<% @publisher_links.each{|link| %>
+		<p>
+			<%= raw "<a href='"+link[:link] +"' target='_blank'>" + link[:link_text] + "</a>" %><br>
+			<%= raw link[:link_comment] %>
+		</p>
+		
+	<% } %>
+</div>
+
+<p></p>
+
+<div id="comments" style="width:600px">
+	
+	<span style="font-size:16px"><b>Comments:</b></span>
+
+	<p></p>
+	<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href="www.vidmap.de/video/<%= @video.id.to_s %>/en" num_posts="8" width="600"></fb:comments>
+</div>
+
+<% content_for :scripts do %>
+
+	<% if @isAdmin %>
+	<script>
+		update_visibility = function() {
+			new Ajax.Request('/web/video_visible', {
+				parameters: { video_id: <%= @video.id %>, visible: $("#is_public").prop('checked') },
+			 	onSuccess: function(transport) {
+			 		//console.log(transport.responseText.evalJSON());
+			 	}
+			 });
+		}
+		
+		<% if !@isOwner %>
+			$("#Video_Place_Description").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+			    type: "textarea",
+			    name: "video_place_description",
+			    cancel    : 'Cancel',
+			    submit    : 'OK'
+			});
+			
+			$("#Video_Place_Description").css({"cursor": "pointer", "background-color": "#FCFFB0"})
+		<% end %>
+		
+	</script>
+	<% end %>
+	
+	<% if @isOwner %>
+	<script>
+	
+		var privacy_inplaceeditor = false;
+		var movement_inplaceeditor = false;
+		var aspect_inplaceeditor = false;
+		
+		sort_collection = function(collection, top) {
+			result = new Array();
+			result.push(collection.find(function(item){return item[0] == top}));
+			
+			collection.each(function(item){
+				if (item[0] != top) result.push(item);
+			});
+			
+			return result;
+		}
+		
+		<% if @isOwner %>
+			$("#Video_Name").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+			    name: "video_name",
+			    cancel    : 'Cancel',
+			    submit    : 'OK'
+			});
+			
+			$("#Video_Description").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+			    type: "textarea",
+			    name: "video_description",
+			    cancel    : 'Cancel',
+			    submit    : 'OK'
+			});
+			
+			$("#Video_Place_Description").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+			    type: "textarea",
+			    name: "video_place_description",
+			    cancel    : 'Cancel',
+			    submit    : 'OK'
+			});
+			
+			$("#movement").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+				data: {"car": "<%= @vm_string_table[:movement_car] %>", "bike": "<%= @vm_string_table[:movement_bike] %>", "plane": "<%= @vm_string_table[:movement_plane] %>", "foot": "<%= @vm_string_table[:movement_foot] %>", "moto": "<%= @vm_string_table[:movement_moto] %>", "ship": "<%= @vm_string_table[:movement_ship] %>", "train": "<%= @vm_string_table[:movement_train] %>", "misc": "<%= @vm_string_table[:movement_misc] %>"},
+			    type: "select",
+			    style: 'display: inline',
+			    name: "video_movement",
+			    submit : 'OK'
+			});
+			
+			$("#privacy").editable("<%= url_for(:controller => "editor", :action => "save_video_params", :video_id => @video.id) %>", 
+			{
+				data: {"private": "<%= @vm_string_table[:private] %>", "public": "<%= @vm_string_table[:public] %>"},
+			    type: "select",
+			    style: 'display: inline',
+			    name: "video_public",
+			    submit : 'OK'
+			});
+			
+			$(".jeditable").css({"cursor": "pointer", "background-color": "#FCFFB0"})
+				
+		<% end %>
+
+	</script>
+	<% end %>
+		
+<% end %>

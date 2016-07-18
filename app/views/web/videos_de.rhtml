@@ -1,0 +1,69 @@
+<div id="video_upload">
+	
+	<div id="first_steps">
+		<% if !@videos || @videos.nil? || @videos.length == 0%>
+				<a class="shiny" style="text-decoration:none; font-size:22px; font-weight:bold" href="/web/new">Du hast noch keine eigene Vidmap erstellt.<span></span></a><br>
+				<a class="shiny" style="text-decoration:none; font-size:16px; font-weight:bold" href="/web/new">Zum Starten klicke den roten "Neue Vidmap" Button rechts!<span></span></a>
+		<% end %>
+	</div>
+	
+	<%
+	if @upload && !@upload.empty?
+	%>
+		<div id="transcoder_progress">
+		
+			<br><b>K&uuml;rzliche Aktivit&auml;ten:</b>
+			<p>
+			<i><div id="transcoder_state">
+				<% @upload.each{ |item| 	%>
+					<%= render(:partial => "web/upload_progress_" + @vm_language + ".rhtml", :locals => {:upload_item => item})  %>
+				<% } 	%>
+			</div></i>
+			</p>
+		
+		</div>
+
+	<%
+	end
+	%>
+			
+</div> <!-- video_upload --> 
+
+<div id="video_list">
+	<%= render :partial => "web/video_list_"+@vm_language+".rhtml", :locals => {:items => @videos, :rows => 4} %>
+</div>
+
+<% content_for :sidebar do %>
+			<%= render :partial => "web/sidebar_home_de.rhtml" %>
+<% end %>
+
+<% if @upload && !@upload.empty? %>
+	<script>
+		Effect.Fade("first_steps", { duration: 1.5 });
+		current_uploads = <%= (@upload.collect {|up| up.id }).sort.to_json %>;
+		new PeriodicalExecuter(function(pe) {
+			new Ajax.Request('/web/transcoder_update', {
+				 asynchronous: false,
+				 parameters: {current_uploads: current_uploads.toJSON()},  
+				 onSuccess: function(transport) {
+				 	
+					current_uploads = eval(transport.responseJSON.current_uploads);
+					
+					if (transport.responseJSON.uploads.length == 0) {
+						pe.stop();
+						Effect.Fade("transcoder_progress", { duration: 3.0 });
+					} else {
+						$("transcoder_state").innerHTML = ""
+						transport.responseJSON.uploads.each(function(item){$("transcoder_state").innerHTML += item.transcoder_state_description});
+					}
+					
+					if (transport.responseJSON.video_list) {
+						$("video_list").innerHTML = transport.responseJSON.video_list;
+					}
+					
+				}
+			});
+			
+		}, 2);
+	</script>
+<% end %>

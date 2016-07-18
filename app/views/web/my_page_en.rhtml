@@ -1,0 +1,13 @@
+
+
+
+<%= error_messages_for :upload %>
+
+<% form_for(:upload, :url => "/web/upload_video", :html => { :multipart => true }) do |f| %>
+Select File: 
+<%= f.label :video_file, 'File' %>:
+<%= file_field_tag :video_file %> <br> 
+<%= submit_tag 'Upload' %>
+<% end %> 
+
+<%= flash[:upload] %>

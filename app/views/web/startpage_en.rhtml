@@ -1,0 +1,67 @@
+<div>
+	
+	<div style="width:698px; height:185px; position:relative;"> 
+		<h1><a style="text-decoration:none; color:#777777;" title="more videos" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'popular') %>">Popular Vidmaps</a></h1>
+		<div class="slideshow">
+		<% @slider.each_with_index {|item, index| %>
+			<div id="slideshow<%= index+1 %>" class="slide" <% if index>0 %>style="display: none"<% end %>>
+				<div style="float:left"><%= render :partial => "web/video_list_"+@vm_language+".rhtml", :locals => {:items => [item], :rows => 1, :style_videolist_item => "width: 154px; padding-left: 12px;"} %></div>
+				<div style="float:left; padding-left:20px; padding-top:10px; width:500px;"><%= item.content %></div>
+				<br class="clearfloat" /> 
+			</div>
+		<% } %>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+    
+		start_slideshow(1, <%= @slider.size %>, 6000);
+		
+		function start_slideshow(start_frame, end_frame, delay) {
+			setTimeout(switch_slides(start_frame,start_frame,end_frame, delay), delay);
+		}
+								
+		function switch_slides(frame, start_frame, end_frame, delay) {
+			return (function() {
+				Effect.DropOut('slideshow' + frame);
+				if (frame == end_frame) { frame = start_frame; } else { frame = frame + 1; }
+				setTimeout("Effect.Appear('slideshow" + frame + "');", 850);
+				setTimeout(switch_slides(frame, start_frame, end_frame, delay), delay + 850);
+			})
+		}
+
+	</script>
+	
+	<p><br></p>
+	
+	<div style="width:698px;">
+		<% if !@videos_recently.empty? %>
+			<h1><a style="text-decoration:none; color:#777777;" title="more videos" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'recent') %>">Now Playing</a></h1>
+		<% end %>
+		<%= raw render :partial => "web/video_list_"+@vm_language+".rhtml", :locals => {:items => @videos_recently, :rows => 4, :style_videolist_item => "width: 154px; padding-left: 12px;"} %>
+	</div>
+
+</div>
+
+<p></p>
+
+<div> 
+	
+	<p></p>
+	
+	<div style="width:698px;">		
+		<% if !@videos_new.empty? %>
+			<h1><a style="text-decoration:none; color:#777777;" title="more videos" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'new') %>">Recently Added</a></h1>
+		<% end %>
+		
+		<%= raw render :partial => "web/video_list_"+@vm_language+".rhtml", :locals => {:items => @videos_new, :rows => 4, :style_videolist_item => "width: 154px; padding-left: 12px;"} %>
+	</div>
+	
+	
+
+</div>
+	
+<% content_for :sidebar do %>
+			<%= raw render :partial => "web/sidebar_home_en.rhtml" %>
+<% end %>
+	

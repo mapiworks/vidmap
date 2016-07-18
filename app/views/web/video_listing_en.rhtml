@@ -1,0 +1,7 @@
+<h1><%= @heading %></h1>
+
+<%= raw render :partial => "web/video_list_"+@vm_language+".rhtml", :locals => {:items => @video_list, :rows => 4} %>
+
+<% content_for :sidebar do %>
+			<%= raw render :partial => "web/sidebar_home_en.rhtml" %>
+<% end %>

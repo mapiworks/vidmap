@@ -1,0 +1,31 @@
+<%#= error_messages_for :user %>
+
+
+<% form_for :user, :html => {:id=>'signup_form', :name=>'signup_form'} do |f| -%>
+
+<p><%= f.label :login, 'Login', :style => "font-size:20px" %><br/>
+<%= f.text_field :login, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :email, 'E-mail', :style => "font-size:20px" %><br/>
+<%= f.text_field :email, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :website, 'Website (optional)', :style => "font-size:20px" %><br/>
+<%= f.text_field :website, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :password, 'Password', :style => "font-size:20px" %><br/>
+<%= f.password_field :password, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :password_confirmation, 'Confirm password', :style => "font-size:20px" %><br/>
+<%= f.password_field :password_confirmation, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :language, 'Prefered Language', :style => "font-size:20px" %><br/>
+<select style="font-size:16px" name="user[language]" id="user_language"><option value="de">Deutsch</option><option selected="selected" value="en">English</option></select></p>
+
+<p><%= submit_tag 'Senden', :style => "font-size:16px" %></p>
+<% end -%>
+
+After completing registration you will automatically receive a confirmation e-mail from Vidmap.de which contains a link to activate your account. Please click on that link to confirm your e-mail address and to start adding content.
+
+<script>
+	document.signup_form.user_login.focus();
+</script>

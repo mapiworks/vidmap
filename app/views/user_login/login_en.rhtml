@@ -1,0 +1,30 @@
+	<% form_tag({:action => 'login'}, :id => 'login_form', :name => 'login_form') do %>
+        
+        
+            <p><label for="login" style="font-size:16px">Login</label><br/>
+            <%= text_field_tag 'login', @login, {:onclick=>'javascript:document.login_form.login.focus();document.login_form.login.select();', :size => 18, :style => "font-size:16px"} %></p> 
+            <p><label for="password" style="font-size:16px"><%= @vm_string_table[:password] %></label><br/>
+            <%= password_field_tag 'password', '', :size => 18, :style => "font-size:16px" %></p>
+            
+            <p><%= submit_tag @vm_string_table[:login], :style => "font-size:16px" %></p>
+        
+    <% end %> 
+  	
+  	<!--
+  	<br>
+  	<p>Login with Twitter:</p>
+  	<p><a href="social_login?twitter=true"><img border=0 src="http://www.decico.com/images/web/design/login/login_twitter.png"></a></p>
+  	-->
+  	
+	<% content_for :sidebar do %>
+			<b>New on Vidmap?</b><p></p>Register <b><%= link_to "now", {:controller => 'user_login', :action => 'signup'}%></b>!
+			
+			
+
+	<% end %>
+
+	<% content_for :scripts do %>
+			<script>
+				document.login_form.login.focus();
+			</script>
+	<% end %>

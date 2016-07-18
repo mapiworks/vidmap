@@ -1,0 +1,545 @@
+[HEADER]        File version: 9
+[HEADER]        File is zlib compressed. Ratio: 48%
+[HEADER]        File size: 359238
+[HEADER]        Frame rate: 15.000000
+[HEADER]        Frame count: 3
+[HEADER]        Movie width: 768.00
+[HEADER]        Movie height: 317.00
+[045]         4 FILEATTRIBUTES usenetwork as3 flags=49
+[009]         3 SETBACKGROUNDCOLOR (ff/ff/ff)
+[018]         0 PROTECT
+[056]        36 SCENEDESCRIPTION
+[02b]        11 FRAMELABEL "frame_init"
+[052]    284987 DOABC, lazy load
+[04c]        28 SYMBOLCLASS
+                exports 0000 as "player_fla.MainTimeline"
+[001]         0 SHOWFRAME 1 (00:00:00,000) (label "frame_init")
+[002]        36 DEFINESHAPE defines id 0001
+[027]         4 DEFINESPRITE defines id 0002
+[01a]         6          PLACEOBJECT2 places id 0001 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0004
+[01a]        12          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[053]        78 DEFINESHAPE4 defines id 0005
+[027]         4 DEFINESPRITE defines id 0006
+[01a]         6          PLACEOBJECT2 places id 0005 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]        61 DEFINESHAPE3 defines id 0007
+[027]         4 DEFINESPRITE defines id 0008
+[01a]         6          PLACEOBJECT2 places id 0007 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[002]        51 DEFINESHAPE defines id 0009
+[027]         4 DEFINESPRITE defines id 0010
+[01a]         6          PLACEOBJECT2 places id 0009 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]        52 DEFINESHAPE3 defines id 0011
+[027]         4 DEFINESPRITE defines id 0012
+[01a]         6          PLACEOBJECT2 places id 0011 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0013
+[046]        40          PLACEOBJECT3 places id 0010 at depth 0001
+[01a]         6          PLACEOBJECT2 places id 0012 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0013 (11.00,47.00)-(261.00,171.00)
+[027]         4 DEFINESPRITE defines id 0014
+[046]        34          PLACEOBJECT3 places id 0010 at depth 0001
+[01a]         6          PLACEOBJECT2 places id 0012 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0014 (4.00,22.05)-(267.95,183.00)
+[016]        91 DEFINESHAPE2 defines id 0015
+[027]         4 DEFINESPRITE defines id 0016
+[01a]         6          PLACEOBJECT2 places id 0015 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[002]       122 DEFINESHAPE defines id 0017
+[027]         4 DEFINESPRITE defines id 0018
+[01a]         6          PLACEOBJECT2 places id 0017 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0018 (4.90,4.95)-(76.95,16.95)
+[020]       129 DEFINESHAPE3 defines id 0019
+[002]        48 DEFINESHAPE defines id 0020
+[027]         4 DEFINESPRITE defines id 0021
+[01a]         6          PLACEOBJECT2 places id 0020 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0022
+[01a]         6          PLACEOBJECT2 places id 0019 at depth 0003
+[01a]        14          PLACEOBJECT2 places id 0021 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       134 DEFINESHAPE3 defines id 0023
+[027]         4 DEFINESPRITE defines id 0024
+[01a]         6          PLACEOBJECT2 places id 0023 at depth 0003
+[01a]         8          PLACEOBJECT2 places id 0020 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       199 DEFINESHAPE3 defines id 0025
+[027]         4 DEFINESPRITE defines id 0026
+[01a]         6          PLACEOBJECT2 places id 0025 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0026 (1.05,5.00)-(8.05,48.00)
+[020]       131 DEFINESHAPE3 defines id 0027
+[027]         4 DEFINESPRITE defines id 0028
+[01a]         6          PLACEOBJECT2 places id 0027 at depth 0003
+[01a]         8          PLACEOBJECT2 places id 0020 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       178 DEFINESHAPE3 defines id 0029
+[027]         4 DEFINESPRITE defines id 0030
+[01a]         6          PLACEOBJECT2 places id 0029 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0030 (1.05,5.00)-(8.00,48.00)
+[020]       131 DEFINESHAPE3 defines id 0031
+[027]         4 DEFINESPRITE defines id 0032
+[01a]         6          PLACEOBJECT2 places id 0031 at depth 0003
+[01a]        14          PLACEOBJECT2 places id 0021 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       131 DEFINESHAPE3 defines id 0033
+[027]         4 DEFINESPRITE defines id 0034
+[01a]         6          PLACEOBJECT2 places id 0033 at depth 0003
+[01a]        14          PLACEOBJECT2 places id 0021 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       199 DEFINESHAPE3 defines id 0035
+[027]         4 DEFINESPRITE defines id 0036
+[01a]         6          PLACEOBJECT2 places id 0035 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0036 (1.05,5.00)-(8.00,48.00)
+[020]       132 DEFINESHAPE3 defines id 0037
+[027]         4 DEFINESPRITE defines id 0038
+[01a]         6          PLACEOBJECT2 places id 0037 at depth 0003
+[01a]         8          PLACEOBJECT2 places id 0020 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       132 DEFINESHAPE3 defines id 0039
+[027]         4 DEFINESPRITE defines id 0040
+[01a]         6          PLACEOBJECT2 places id 0039 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[020]       132 DEFINESHAPE3 defines id 0041
+[027]         4 DEFINESPRITE defines id 0042
+[01a]         6          PLACEOBJECT2 places id 0041 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[016]        88 DEFINESHAPE2 defines id 0043
+[027]         4 DEFINESPRITE defines id 0044
+[01a]         6          PLACEOBJECT2 places id 0043 at depth 0004
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0045
+[01a]        11          PLACEOBJECT2 places id 0016 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        13          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        12          PLACEOBJECT2 places id 0018 at depth 0002
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0004
+[01a]        11          PLACEOBJECT2 places id 0016 at depth 0008
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0012
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0016
+[01a]        12          PLACEOBJECT2 places id 0022 at depth 0020
+[01a]        12          PLACEOBJECT2 places id 0024 at depth 0025
+[01a]        12          PLACEOBJECT2 places id 0026 at depth 0030
+[01a]        12          PLACEOBJECT2 places id 0028 at depth 0034
+[01a]        12          PLACEOBJECT2 places id 0030 at depth 0039
+[01a]        12          PLACEOBJECT2 places id 0032 at depth 0043
+[01a]        11          PLACEOBJECT2 places id 0034 at depth 0048
+[01a]        11          PLACEOBJECT2 places id 0036 at depth 0053
+[01a]        12          PLACEOBJECT2 places id 0038 at depth 0057
+[01a]        12          PLACEOBJECT2 places id 0040 at depth 0062
+[01a]        12          PLACEOBJECT2 places id 0042 at depth 0066
+[01a]        11          PLACEOBJECT2 places id 0044 at depth 0070
+[01a]        12          PLACEOBJECT2 places id 0044 at depth 0075
+[01a]        12          PLACEOBJECT2 places id 0044 at depth 0080
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0046
+[01a]        12          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        15          PLACEOBJECT2 places id 0013 at depth 0002
+[01a]        16          PLACEOBJECT2 places id 0014 at depth 0006
+[01a]        17          PLACEOBJECT2 places id 0045 at depth 0010
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[016]       154 DEFINESHAPE2 defines id 0047
+[027]         4 DEFINESPRITE defines id 0048
+[01a]         6          PLACEOBJECT2 places id 0047 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0048 (1.00,1.00)-(151.00,21.00)
+[020]       110 DEFINESHAPE3 defines id 0049
+[027]         4 DEFINESPRITE defines id 0050
+[01a]         6          PLACEOBJECT2 places id 0049 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0050 (1.00,1.00)-(150.95,21.00)
+[016]       107 DEFINESHAPE2 defines id 0051
+[027]         4 DEFINESPRITE defines id 0052
+[01a]         6          PLACEOBJECT2 places id 0051 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0052 (1.00,1.00)-(150.95,21.00)
+[016]       107 DEFINESHAPE2 defines id 0053
+[027]         4 DEFINESPRITE defines id 0054
+[01a]         6          PLACEOBJECT2 places id 0053 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0054 (1.00,1.00)-(151.00,21.00)
+[020]       124 DEFINESHAPE3 defines id 0055
+[027]         4 DEFINESPRITE defines id 0056
+[01a]         6          PLACEOBJECT2 places id 0055 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0056 (1.15,1.00)-(151.00,21.00)
+[016]       106 DEFINESHAPE2 defines id 0057
+[027]         4 DEFINESPRITE defines id 0058
+[01a]         6          PLACEOBJECT2 places id 0057 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0058 (1.00,1.00)-(151.00,21.00)
+[020]       144 DEFINESHAPE3 defines id 0059
+[027]         4 DEFINESPRITE defines id 0060
+[01a]         6          PLACEOBJECT2 places id 0059 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0060 (1.00,1.00)-(151.00,21.00)
+[016]       157 DEFINESHAPE2 defines id 0061
+[027]         4 DEFINESPRITE defines id 0062
+[01a]         6          PLACEOBJECT2 places id 0061 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0062 (1.00,1.00)-(151.00,21.00)
+[027]         4 DEFINESPRITE defines id 0063
+[01a]         6          PLACEOBJECT2 places id 0048 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        11          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        16          PLACEOBJECT2 places id 0050 at depth 0002
+[01a]        16          PLACEOBJECT2 places id 0052 at depth 0005
+[01a]        16          PLACEOBJECT2 places id 0054 at depth 0008
+[01a]        16          PLACEOBJECT2 places id 0048 at depth 0011
+[01a]        16          PLACEOBJECT2 places id 0056 at depth 0014
+[01a]        16          PLACEOBJECT2 places id 0058 at depth 0017
+[01a]        16          PLACEOBJECT2 places id 0060 at depth 0020
+[01a]        17          PLACEOBJECT2 places id 0062 at depth 0024
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[020]        68 DEFINESHAPE3 defines id 0064
+[027]         4 DEFINESPRITE defines id 0065
+[01a]         6          PLACEOBJECT2 places id 0064 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0065 (4.00,7.00)-(267.95,186.95)
+[027]         4 DEFINESPRITE defines id 0066
+[01a]        12          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        17          PLACEOBJECT2 places id 0045 at depth 0002
+[01a]        16          PLACEOBJECT2 places id 0063 at depth 0083
+[01a]        16          PLACEOBJECT2 places id 0018 at depth 0108
+[01a]        16          PLACEOBJECT2 places id 0065 at depth 0110
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[04b]        20 DEFINEFONT3 defines id 0067
+[049]         3 DEFINEFONTALIGNZONES adds information to id 0067
+[025]        42 DEFINEEDITTEXT defines id 0068 variable "" (readonly)
+[04a]        12 CSMTEXTSETTINGS adds information to id 0068
+[027]         4 DEFINESPRITE defines id 0069
+[01a]        28          PLACEOBJECT2 places id 0068 at depth 0001 name "t_ActivityMessage"
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0070
+[01a]        12          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        12          PLACEOBJECT2 places id 0018 at depth 0002
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0004
+[01a]        11          PLACEOBJECT2 places id 0016 at depth 0008
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0012
+[01a]        12          PLACEOBJECT2 places id 0016 at depth 0016
+[01a]        12          PLACEOBJECT2 places id 0022 at depth 0020
+[01a]        12          PLACEOBJECT2 places id 0024 at depth 0025
+[01a]        12          PLACEOBJECT2 places id 0026 at depth 0030
+[01a]        12          PLACEOBJECT2 places id 0028 at depth 0034
+[01a]        12          PLACEOBJECT2 places id 0030 at depth 0039
+[01a]        12          PLACEOBJECT2 places id 0032 at depth 0043
+[01a]        11          PLACEOBJECT2 places id 0034 at depth 0048
+[01a]        11          PLACEOBJECT2 places id 0036 at depth 0053
+[01a]        12          PLACEOBJECT2 places id 0038 at depth 0057
+[01a]        12          PLACEOBJECT2 places id 0040 at depth 0062
+[01a]        12          PLACEOBJECT2 places id 0042 at depth 0066
+[01a]        11          PLACEOBJECT2 places id 0044 at depth 0070
+[01a]        12          PLACEOBJECT2 places id 0044 at depth 0075
+[01a]        12          PLACEOBJECT2 places id 0044 at depth 0080
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[020]       134 DEFINESHAPE3 defines id 0071
+[027]         4 DEFINESPRITE defines id 0072
+[01a]         6          PLACEOBJECT2 places id 0071 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0072 (38.00,5.50)-(114.00,16.50)
+[002]       116 DEFINESHAPE defines id 0073
+[027]         4 DEFINESPRITE defines id 0074
+[01a]         6          PLACEOBJECT2 places id 0073 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]        10 DEFINESCALINGGRID adds information to id 0074 (1.55,1.55)-(150.05,19.95)
+[027]         4 DEFINESPRITE defines id 0075
+[01a]        12          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        16          PLACEOBJECT2 places id 0072 at depth 0002
+[01a]        16          PLACEOBJECT2 places id 0074 at depth 0004
+[01a]        17          PLACEOBJECT2 places id 0018 at depth 0006
+[01a]        12          PLACEOBJECT2 places id 0070 at depth 0008
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[053]        86 DEFINESHAPE4 defines id 0076
+[027]         4 DEFINESPRITE defines id 0077
+[01a]         6          PLACEOBJECT2 places id 0076 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[053]       116 DEFINESHAPE4 defines id 0078
+[027]         4 DEFINESPRITE defines id 0079
+[01a]         6          PLACEOBJECT2 places id 0078 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[053]       116 DEFINESHAPE4 defines id 0080
+[027]         4 DEFINESPRITE defines id 0081
+[01a]         6          PLACEOBJECT2 places id 0080 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[002]       101 DEFINESHAPE defines id 0082
+[027]         4 DEFINESPRITE defines id 0083
+[01a]         6          PLACEOBJECT2 places id 0082 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0083 (2.25,0.05)-(78.00,2.95)
+[002]        26 DEFINESHAPE defines id 0084
+[027]         4 DEFINESPRITE defines id 0085
+[01a]         6          PLACEOBJECT2 places id 0084 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[002]       119 DEFINESHAPE defines id 0086
+[027]         4 DEFINESPRITE defines id 0087
+[01a]         6          PLACEOBJECT2 places id 0086 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0087 (2.00,0.05)-(78.00,2.95)
+[053]        86 DEFINESHAPE4 defines id 0088
+[027]         4 DEFINESPRITE defines id 0089
+[01a]         6          PLACEOBJECT2 places id 0088 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0090
+[01a]        11          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        17          PLACEOBJECT2 places id 0077 at depth 0002
+[01a]        17          PLACEOBJECT2 places id 0079 at depth 0004
+[01a]        17          PLACEOBJECT2 places id 0081 at depth 0006
+[01a]        16          PLACEOBJECT2 places id 0083 at depth 0008
+[01a]        11          PLACEOBJECT2 places id 0085 at depth 0010
+[01a]        17          PLACEOBJECT2 places id 0087 at depth 0012
+[01a]        12          PLACEOBJECT2 places id 0018 at depth 0014
+[01a]        17          PLACEOBJECT2 places id 0089 at depth 0016
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[020]       298 DEFINESHAPE3 defines id 0091
+[027]         4 DEFINESPRITE defines id 0092
+[01a]         6          PLACEOBJECT2 places id 0091 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0092 (6.00,5.00)-(74.00,16.00)
+[020]       351 DEFINESHAPE3 defines id 0093
+[027]         4 DEFINESPRITE defines id 0094
+[01a]         6          PLACEOBJECT2 places id 0093 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0094 (4.00,5.00)-(76.00,16.00)
+[020]       178 DEFINESHAPE3 defines id 0095
+[027]         4 DEFINESPRITE defines id 0096
+[01a]         6          PLACEOBJECT2 places id 0095 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0096 (4.90,4.90)-(76.90,17.05)
+[020]       326 DEFINESHAPE3 defines id 0097
+[027]         4 DEFINESPRITE defines id 0098
+[01a]         6          PLACEOBJECT2 places id 0097 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0098 (5.00,5.00)-(76.00,16.00)
+[020]       268 DEFINESHAPE3 defines id 0099
+[027]         4 DEFINESPRITE defines id 0100
+[01a]         6          PLACEOBJECT2 places id 0099 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0100 (7.00,5.00)-(57.75,16.00)
+[016]       264 DEFINESHAPE2 defines id 0101
+[027]         4 DEFINESPRITE defines id 0102
+[01a]         6          PLACEOBJECT2 places id 0101 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0102 (5.00,5.00)-(58.85,17.00)
+[020]       266 DEFINESHAPE3 defines id 0103
+[027]         4 DEFINESPRITE defines id 0104
+[01a]         6          PLACEOBJECT2 places id 0103 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0104 (5.00,5.00)-(58.55,16.00)
+[020]       267 DEFINESHAPE3 defines id 0105
+[027]         4 DEFINESPRITE defines id 0106
+[01a]         6          PLACEOBJECT2 places id 0105 at depth 0002
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0106 (6.00,5.00)-(59.20,16.00)
+[020]       362 DEFINESHAPE3 defines id 0107
+[027]         4 DEFINESPRITE defines id 0108
+[01a]         6          PLACEOBJECT2 places id 0107 at depth 0003
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[04e]         9 DEFINESCALINGGRID adds information to id 0108 (7.00,5.00)-(75.00,16.00)
+[027]         4 DEFINESPRITE defines id 0109
+[01a]        11          PLACEOBJECT2 places id 0002 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[01c]         2          REMOVEOBJECT2 removes object from depth 0001
+[01a]        16          PLACEOBJECT2 places id 0003 at depth 0001
+[01a]        17          PLACEOBJECT2 places id 0092 at depth 0002
+[01a]        12          PLACEOBJECT2 places id 0094 at depth 0006
+[01a]        17          PLACEOBJECT2 places id 0096 at depth 0010
+[01a]        17          PLACEOBJECT2 places id 0098 at depth 0013
+[01a]        11          PLACEOBJECT2 places id 0100 at depth 0017
+[01a]        12          PLACEOBJECT2 places id 0102 at depth 0020
+[01a]        11          PLACEOBJECT2 places id 0104 at depth 0023
+[01a]        11          PLACEOBJECT2 places id 0106 at depth 0026
+[01a]        17          PLACEOBJECT2 places id 0108 at depth 0029
+[01a]        17          PLACEOBJECT2 places id 0018 at depth 0033
+[001]         0          SHOWFRAME 2 (00:00:00,067)
+[000]         0          END
+[027]         4 DEFINESPRITE defines id 0110
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[052]     58273 DOABC, lazy load
+[04c]      1367 SYMBOLCLASS
+                exports 0110 as "fl.containers.UILoader"
+                exports 0109 as "fl.controls.Button"
+                exports 0108 as "Button_upSkin"
+                exports 0106 as "Button_selectedUpSkin"
+                exports 0104 as "Button_selectedOverSkin"
+                exports 0102 as "Button_selectedDownSkin"
+                exports 0100 as "Button_selectedDisabledSkin"
+                exports 0098 as "Button_overSkin"
+                exports 0096 as "Button_emphasizedSkin"
+                exports 0094 as "Button_downSkin"
+                exports 0092 as "Button_disabledSkin"
+                exports 0090 as "fl.controls.Slider"
+                exports 0089 as "SliderThumb_overSkin"
+                exports 0087 as "SliderTrack_disabledSkin"
+                exports 0085 as "SliderTick_skin"
+                exports 0083 as "SliderTrack_skin"
+                exports 0081 as "SliderThumb_disabledSkin"
+                exports 0079 as "SliderThumb_downSkin"
+                exports 0077 as "SliderThumb_upSkin"
+                exports 0075 as "fl.controls.TextArea"
+                exports 0074 as "TextArea_upSkin"
+                exports 0072 as "TextArea_disabledSkin"
+                exports 0070 as "fl.controls.UIScrollBar"
+                exports 0069 as "ActivityIndicator"
+                exports 0066 as "fl.controls.TileList"
+                exports 0065 as "TileList_skin"
+                exports 0063 as "fl.controls.listClasses.CellRenderer"
+                exports 0062 as "CellRenderer_selectedUpSkin"
+                exports 0060 as "CellRenderer_selectedOverSkin"
+                exports 0058 as "CellRenderer_selectedDownSkin"
+                exports 0056 as "CellRenderer_selectedDisabledSkin"
+                exports 0054 as "CellRenderer_overSkin"
+                exports 0052 as "CellRenderer_downSkin"
+                exports 0050 as "CellRenderer_disabledSkin"
+                exports 0048 as "CellRenderer_upSkin"
+                exports 0046 as "fl.containers.ScrollPane"
+                exports 0045 as "fl.controls.ScrollBar"
+                exports 0044 as "ScrollBar_thumbIcon"
+                exports 0042 as "ScrollArrowUp_disabledSkin"
+                exports 0040 as "ScrollArrowDown_disabledSkin"
+                exports 0038 as "ScrollArrowDown_upSkin"
+                exports 0036 as "ScrollThumb_upSkin"
+                exports 0034 as "ScrollArrowUp_upSkin"
+                exports 0032 as "ScrollArrowUp_overSkin"
+                exports 0030 as "ScrollThumb_overSkin"
+                exports 0028 as "ScrollArrowDown_overSkin"
+                exports 0026 as "ScrollThumb_downSkin"
+                exports 0024 as "ScrollArrowDown_downSkin"
+                exports 0022 as "ScrollArrowUp_downSkin"
+                exports 0018 as "focusRectSkin"
+                exports 0016 as "ScrollTrack_skin"
+                exports 0014 as "ScrollPane_upSkin"
+                exports 0013 as "ScrollPane_disabledSkin"
+                exports 0008 as "CustomCellBgOver"
+                exports 0006 as "CustomCellBgSelected"
+                exports 0004 as "fl.controls.Label"
+                exports 0003 as "fl.core.ComponentShim"
+[001]         0 SHOWFRAME 2 (00:00:00,067)
+[02b]        12 FRAMELABEL "frame_start"
+[002]        38 DEFINESHAPE defines id 0111
+[01a]         6 PLACEOBJECT2 places id 0111 at depth 0001
+[03c]        10 DEFINEVIDEOSTREAM defines id 0112 (0 frames, 160x120 codec 0x00)
+[027]         4 DEFINESPRITE defines id 0113
+[01a]        22          PLACEOBJECT2 places id 0112 at depth 0001 name "videoclip"
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[01a]        24 PLACEOBJECT2 places id 0113 at depth 0002 name "_Video"
+[002]        34 DEFINESHAPE defines id 0114
+[027]         4 DEFINESPRITE defines id 0115
+[01a]         6          PLACEOBJECT2 places id 0114 at depth 0001
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[01a]        18 PLACEOBJECT2 places id 0115 at depth 0004 name "_Map"
+[002]        53 DEFINESHAPE defines id 0116
+[027]         4 DEFINESPRITE defines id 0117
+[01a]         6          PLACEOBJECT2 places id 0116 at depth 0001
+[01a]        24          PLACEOBJECT2 places id 0109 at depth 0002 name "_PlayPause"
+[01a]        21          PLACEOBJECT2 places id 0090 at depth 0036 name "_Seek"
+[01a]        24          PLACEOBJECT2 places id 0090 at depth 0053 name "_Volume"
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[01a]        27 PLACEOBJECT2 places id 0117 at depth 0006 name "_Controls"
+[027]         4 DEFINESPRITE defines id 0118
+[01a]        22          PLACEOBJECT2 places id 0112 at depth 0001 name "videoclip"
+[001]         0          SHOWFRAME 1 (00:00:00,000)
+[000]         0          END
+[01a]        24 PLACEOBJECT2 places id 0118 at depth 0060 name "_Thumb"
+[01a]        24 PLACEOBJECT2 places id 0075 at depth 0062 name "tDebug"
+[024]      3313 DEFINEBITSLOSSLESS2 defines id 0119 image 215x79 (32 bpp)
+[002]        51 DEFINESHAPE defines id 0120
+[022]        13 DEFINEBUTTON2 defines id 0121
+[01a]        34 PLACEOBJECT2 places id 0121 at depth 0071 name "vidmaplogo"
+[04c]        26 SYMBOLCLASS
+                exports 0117 as "player_fla.Controls_3"
+[001]         0 SHOWFRAME 3 (00:00:00,133) (label "frame_start")
+[000]         0 END

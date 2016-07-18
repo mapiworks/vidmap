@@ -1,0 +1,77 @@
+<% if request.post?%>
+	<div id="vm_upload_response">
+	   <%
+		begin
+			for i in flash[:upload_result]
+			%>
+				<%= i + "<br>"%>
+			<%
+			end
+		rescue
+		end
+		%>
+	</div><br>
+<% end %>
+
+
+
+<div id="vm_upload_form">
+    <% form_for(:upload, :url => "/web/upload", :html => { :multipart => true }) do |f| %> 
+		<%#= error_messages_for 'upload' %>
+    		
+        <p>
+					<b><%= f.label :filename, 'W&auml;hle ein Video zum Hochladen' %></b><br>
+					<%= file_field_tag :video_file, :style=>"font-size: 16px;" %>
+        </p>
+							
+        <p>
+					<b><%= f.label :name, 'Name f&uuml;r dein Video' %></b><br>
+					<%= text_field_tag :name, '', :style=>"font-size: 16px;" %>  
+        </p>
+       	
+				<p>
+					<b><%= f.label :movement_type, 'Von welchem Transportmittel aus hast du das Video aufgenommen?' %></b><br>
+					<%= select_tag :movement_type, "<option value='car'>Auto</option><option value='bike'>Fahrrad</option><option value='plane'>Flugzeug</option><option selected='yes' value='foot'>Fu&szlig;g&auml;nger</option><option value='moto'>Motorrad</option><option value='ship'>Schiff</option><option value='train'>Zug</option><option value='misc'>Sonstiges</option>", :style=>"font-size: 16px; width: 140px;" %>  
+        </p>
+				
+				<p>
+					<div><b>Datenschutz</b></div>
+					<%= radio_button("video", "public", "1", {:checked => true})%> <%= label(:video, :public, "Zeige dein Video der ganzen Welt (empfohlen)", :style=>"font-size: 16px;" ) %><br>
+					<%= radio_button("video", "public", "0")%> <%= label(:video, :public, "Privat", :style=>"font-size: 16px;" ) %>
+      	</p>
+				
+        <p>
+					<div style="color:#333333; font-size:12px; font-weight:bold;">Lade kein anst&ouml;&szlig;iges Material oder Material, das die Urheberrechte anderer verletzt, hoch.</div>
+					<%= check_box_tag :terms_accepted, "YES" %>
+					<%= f.label :terms_accepted, "<span style='font-size:12px; font-weight:bold;'>Ich stimme den " + link_to("Nutzungsbedingungen", {:controller => "web", :action => "terms"}, :popup => true, :style => "color:#000000") + " zu.</span>", :style=>"font-size: 18px;" %>
+        </p>
+				
+        <p>
+				</p>
+        	<%= submit_tag '&Uuml;bertragen', {:onclick => "javascript:return checkForm()", :id=>"upload_id", :style=>"font-size: 16px;"} %><span id="submit_status" style="display:none;"><img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> Bitte warten w&auml;hrend das Video hochgeladen wird. </span><span id="submit_hint"></span>
+   			
+    
+    <% end %> 
+
+</div>
+
+<% content_for :sidebar do %>
+			<div style="float:right; color:#333333; font-size:12px;">Dieser Upload unterst&uuml;tzt die g&auml;ngisten <b>Videoformate</b>: H.264, MPEG, MPEG-4, ASF, AVI, Real Audio/Video, Quicktime (MOV), 3GPP2, 3GPP und Flash Video (FLV). <p></p>Es gibt <b>kein Limit</b> f&uuml;r die maximale Videospieldauer. Die Dateigr&ouml;&szlig;e sollte <b>500 MB</b> nicht &uuml;berschreiten. </div>
+<% end %>
+
+<script>
+
+
+function checkForm(){
+	
+	if (document.getElementById("video_file").value.length > 0 && document.getElementById("name").value.length > 0 && document.getElementById("terms_accepted").checked) {
+		$("submit_status").show();
+		$("submit_hint").innerHTML = "";
+		return true
+	} else {
+		$("submit_status").hide();
+		$("submit_hint").innerHTML = '<i> F&uuml;lle zuerst alle Felder aus und best&auml;tige die Nutzungsbedingungen.</i>'
+		return false;
+	}
+}
+</script>

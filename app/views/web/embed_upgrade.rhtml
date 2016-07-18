@@ -1,0 +1,13 @@
+function(){
+
+var A = document.getElementsByName("movie")[0].parentNode;
+var elem = document.createElement("span");
+
+
+var code = '<iframe src="http://<%= @top_level_domain %>.vidmap.de/web/embed?video_id=<%= @video_id %>&vmkey=<%= @vmkey %>" style="position: relative; width: 640px; height: 390px; border: none;"></iframe>';
+elem.innerHTML = code;
+
+A.parentNode.replaceChild(elem, A);
+
+}
+

@@ -1,0 +1,19 @@
+<html>
+<body style="color:#000000; padding:20px; font-family:Verdana, Arial, Helvetica, sans-serif; background-color:#9AE4E8;">
+<div><a href="http://www.vidmap.de"><img  width="250px" height="63px" border="0px" alt="Vidmap" src="http://www.vidmap.de/images/vidmap_mail_png.png"/></a></div>
+
+<div style="max-width:600px;">  
+	<div style="padding:30px; border:2px solid #CCCCCC; -moz-border-radius:10px; -webkit-border-radius:10px; background-color:white; -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8; filter:alpha(opacity=80);">   
+		<div style="font-size:24px; font-weight:bold">Hi <%= @user.login%></div><br>
+		<div style="font-size:18px; max-width:500px;">To finish your registration please click the following activation link:</div><br />
+		<div style="font-size:18px; font-weight:bold;"><a href="http://<%= @host %>/user_login/activate?activation_code=<%= @user.activation_code %>">Activate now</a></div><br />
+		<div style="font-size:18px;"><i>Your Vidmap Team</i></div>
+	</div>
+	
+	<div style="font-size:12px; text-align:right;">   
+	<i><b><a style="color:#0000FF; text-decoration:none" href="http://twitter.com/vidmap">Follow Vidmap on Twitter</a></b></i>
+	</div>
+</div>
+
+</body>
+</html>

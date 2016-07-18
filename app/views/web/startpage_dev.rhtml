@@ -1,0 +1,43 @@
+	
+	
+<div id="Home_Content">
+	
+	<div>
+		
+		<div style="float:left; margin:20px 15px 15px 0; border-right:1px solid #E0E0E0; width: 315px; height: 330px; font-style: italic; font-size: 18px">
+			<object width="290" height="340" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="http://www.vidmap.de/api?vmkey=df58248c414f342c81e056b40bee12d17a08bf61&vmapp=player&vmdesign=tdmv16"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param value="transparent" name="wmode"></param><param name="flashVars" value="routes=[3]"/><embed src="http://www.vidmap.de/api?vmkey=df58248c414f342c81e056b40bee12d17a08bf61&vmapp=player&vmdesign=tdmv16" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="routes=[3]" wmode="transparent" allowscriptaccess="always" allowfullscreen="false" width="290" height="340"></embed></object>
+		</div>
+		
+		<div style="float:left; width:315px">
+			<% if !@videos_recently.empty? %><h1 class="shiny">K&uuml;rzlich abgespielt<span></span></h1><% end %>
+			<%= render :partial => "web/video_list.rhtml", :locals => {:items => @videos_recently, :rows => 2} %>
+			<div><i><b><a class="shiny" style="text-decoration:none; font-size:smaller" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'recent') %>"><%= @vm_string_table[:more] %>...<span></span></a></b></i></div>
+		</div>
+		
+		<br class="clearfloat" /> 
+	</div>
+	
+	<div>
+		
+		<div style="float:left; width:315px; margin-top:0px">		
+			<% if !@videos_new.empty? %><h1 class="shiny">Neuste Vidmaps<span></span></h1><% end %>
+			<%= render :partial => "web/video_list.rhtml", :locals => {:items => @videos_new, :rows => 2} %>
+			<div><i><b><a class="shiny" style="text-decoration:none; font-size:smaller" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'new') %>"><%= @vm_string_table[:more] %>...<span></span></a></b></i></div>
+		</div>
+		
+		<div style="float:left; width:315px; margin-top:0px; margin-left:46px">
+			<% if !@videos_popular.empty? %><h1 class="shiny">Beliebte Vidmaps<span></span></h1><% end %>
+			<%= render :partial => "web/video_list.rhtml", :locals => {:items => @videos_popular, :rows => 2} %>	
+			<div><i><b><a class="shiny" style="text-decoration:none; font-size:smaller" href="<%= url_for(:controller => 'web', :action => 'video_listing', :sort =>'popular') %>"><%= @vm_string_table[:more] %>...<span></span></a></b></i></div>
+		</div>
+		
+		<br class="clearfloat" /> 
+	</div>
+	
+</div>
+
+<div id="Home_Sidebar">
+	<%= render :partial => "web/sidebar_home_de.rhtml", :locals => {:countries => @countries, :distances => @distances, :cities => @cities, :movements => @movements} %>
+</div>
+
+<br class="clearfloat" /> 

@@ -1,0 +1,63 @@
+<div id="Video_Sidebar">
+	<div class="sidebar_items">
+	<b>
+	<% if !@user_website.nil? && !@user_website.empty? %>
+		<a title="Link zur Homepage von <%= @user_name.to_s %>" style="text-decoration:none" href="<%= @user_website %>"><%= @user_name.to_s %></a>
+	<% else %>
+		<%= @user_name.to_s %>
+	<% end %>
+	</b>
+	</div>
+	
+	<div class="sidebar_items"><b>Datum:</b> <%= @submission_date.to_s %></div>
+	
+	<% if @isOwner && @video.youtube && @video.disabled%>
+		<div class="sidebar_items"><b>Youtube sagt:</b> Video nicht gefunden!</div>
+	<% end %>
+	
+	<div class="sidebar_items"><b>Art:</b> <span class="jeditable" id="movement"><%=
+	case @video.movement_type
+	when "car"
+		@vm_string_table[:movement_car]
+	when "bike"
+		@vm_string_table[:movement_bike]
+	when "plane"
+		@vm_string_table[:movement_plane]
+	when "foot"
+		@vm_string_table[:movement_foot]
+	when "moto"
+		@vm_string_table[:movement_moto]
+	when "ship"
+		@vm_string_table[:movement_ship]
+	when "train"
+		@vm_string_table[:movement_train]
+	else
+		@vm_string_table[:movement_misc]
+	end
+	%></span></div>
+	
+	<div class="sidebar_items"><b>Videodauer:</b> <%= formatDuration(@video.duration) %></div>
+	
+	<div class="sidebar_items"><b>Streckenl&auml;nge:</b> <%= @hasRoute ? formatDistance(@route.end_at_distance) : "0 km"%></div>
+	<div class="sidebar_items"><b>Geschwindigkeit:</b> <%= @hasRoute ? formatSpeed(@route.end_at_distance/@video.duration) : "0 km/h"%></div>
+	    
+	<% if @isOwner %><div class="sidebar_items"><b>Freigabe:</b> <span id="privacy" class="jeditable video_editor_elements"><%= @isPublic ? @vm_string_table[:public] : @vm_string_table[:private] %></span></div><% end %>
+	
+	<div id = "embed">
+		<%= @sidebar_embed %>
+	</div>
+	
+	<% if @isOwner %>
+	<div>
+		<br>
+		<% form_for(:video, :url => { :controller => "web", :action => "delete_video", :video_id => @video.id }) do |f| %>
+		<%= submit_tag("Video löschen", :onclick => "return confirm('M&ouml;chtest du dieses Video wirklich l&ouml;schen?');")%> 
+		<% end %>
+	</div>
+	<% end %>
+	
+	<p></p> 
+	<p></p>
+	<iframe src="http://www.facebook.com/plugins/like.php?href=<%=CGI::escape('http://'+(ENV['RAILS_ENV'] == 'development' ? 'dev' : 'www')+'.vidmap.de/web/video/' + @video.id.to_s) %>&amp;layout=standard&amp;show_faces=true&amp;width=200&amp;action=like&amp;font=lucida+grande&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:140px;" allowTransparency="true"></iframe>
+	
+</div>	

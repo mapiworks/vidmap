@@ -1,0 +1,6 @@
+<h1 class="shiny">L&auml;nder&uuml;bersicht<span></span></h1>
+<div style="position:relative">
+	<img class="leftfloat" style="width:400px; height:190px" src="http://chart.apis.google.com/chart?cht=t&amp;chs=400x190&amp;chd=t:<%= @countries.map(&:times).join(",") %>&amp;chco=D3D1CA,99FF99,00FF00&amp;chld=<%= @countries.map(&:country).join() %>&amp;chtm=world&amp;chf=bg,s,FFFFFF"/>
+	<div class="leftfloat" style="color: #333333; width: 260px; margin-left:10px; margin-right:10px">Diese Seite gibt dir einen &Uuml;berblick &uuml;ber die L&auml;nder in denen bereits Vidmaps verf&uuml;gbar sind.</div>
+	<br class="clearfloat" /> 
+</div>

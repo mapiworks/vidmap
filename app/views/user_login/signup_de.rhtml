@@ -1,0 +1,31 @@
+<%#= error_messages_for :user %>
+
+
+<% form_for :user, :html => {:id=>'signup_form', :name=>'signup_form'} do |f| -%>
+
+<p><%= f.label :login, 'Loginname', :style => "font-size:20px" %><br/>
+<%= f.text_field :login, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :email, 'E-Mail', :style => "font-size:20px" %><br/>
+<%= f.text_field :email, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :website, 'Internetadresse (optional)', :style => "font-size:20px" %><br/>
+<%= f.text_field :website, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :password, 'Passwort', :style => "font-size:20px" %><br/>
+<%= f.password_field :password, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :password_confirmation, 'Passwort wiederholen', :style => "font-size:20px" %><br/>
+<%= f.password_field :password_confirmation, :size => 20, :style => "font-size:16px" %></p>
+
+<p><%= f.label :language, 'Bevorzugte Sprache', :style => "font-size:20px" %><br/>
+<select style="font-size:16px" name="user[language]" id="user_language"><option selected="selected" value="de">Deutsch</option><option value="en">English</option></select></p>
+
+<p><%= submit_tag 'Senden', :style => "font-size:16px" %></p>
+<% end -%>
+
+Nach erfolgreicher Registrierung erh&auml;lst du von Vidmap.de automatisch eine Best&auml;tigungsmail mit einem Link zur Freischaltung deines Kontos.
+
+<script>
+	document.signup_form.user_login.focus();
+</script>

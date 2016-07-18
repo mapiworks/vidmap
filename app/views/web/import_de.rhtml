@@ -1,0 +1,171 @@
+<% if request.post?%>
+	<div id="vm_upload_response">
+	   <%
+		begin
+			for i in flash[:upload_result]
+			%>
+				<%= i + "<br>"%>
+			<%
+			end
+		rescue
+		end
+		%>
+	</div><br>
+<% end %>
+
+
+
+<div id="vm_upload_form">
+    <% form_for(:upload, :url => "/web/import", :html => { :multipart => true }) do |f| %> 
+		<%#= error_messages_for 'upload' %>
+    		
+        <p>
+					<b><%= f.label :filename, 'Wähle ein Youtube-Video zum Importieren' %></b><br>
+					<div style="float:left"><%= text_field_tag :video_link, '', :style=>"font-size: 16px;", :onkeyup => "schedule_video_link_check()" %><span id="search"><img style="vertical-align:middle" width="32px" height="32px" src="/images/import/question.gif"/></span></div>
+					<div id="hint" style="vertical-align:middle; float:right; color:#333333; font-size:12px; width:430px">F&uuml;ge hier bitte den Link zu dem gew&uuml;nschten Youtube-Video ein. Also z.B. <b>http://www.youtube.com/watch?v=1nb5EUMqFC0</b> oder einfach nur <b>1nb5EUMqFC0</b>. Du kannst auch einen <b>Suchbegriff</b> eingeben.</div>
+					<br class="clearfloat" /> 
+        </p>			
+			
+		<div id="preview" style="font-size:12px"></div>
+				
+		<p>
+				<b><%= f.label :name, 'Videobeschreibung' %></b><br>
+				<%= text_field_tag :name, '', :style=>"font-size: 16px;" %>  
+		</p>
+       	
+				<p>
+					<b><%= f.label :movement_type, 'Von wo aus hast du das Video aufgenommen?' %></b><br>
+					<%= raw select_tag :movement_type, "<option value='car'>Auto</option><option value='bike'>Fahrrad</option><option value='plane'>Flugzeug</option><option selected='yes' value='foot'>Fu&szlig;g&auml;nger</option><option value='moto'>Motorrad</option><option value='ship'>Schiff</option><option value='train'>Zug</option><option value='misc'>Sonstiges</option>".html_safe, :style=>"font-size: 16px; width: 140px;" %>  
+        </p>
+				
+				<p>
+	<div><b>Datenschutz</b></div>
+					<%= radio_button("video", "public", "1", {:checked => true})%> <%= label(:video, :public, "Zeige dein Video der ganzen Welt (empfohlen)", :style=>"font-size: 16px;", :id =>"video_public_label_1" ) %><br>
+					<%= radio_button("video", "public", "0")%> <%= label(:video, :public, "Privat", :style=>"font-size: 16px;", :id =>"video_public_label_0" ) %>
+      	</p>
+				
+        <p>
+	<div style="color:#333333; font-size:12px; font-weight:bold;">Lade kein anst&ouml;&szlig;iges Material oder Material, das die Urheberrechte anderer verletzt, hoch.</div>
+					<%= check_box_tag :terms_accepted, "YES" %>
+					<%= f.label :terms_accepted, "<span style='font-size:12px; font-weight:bold;'>Ich stimme den ".html_safe + link_to("Nutzungsbedingungen", {:controller => "web", :action => "terms"}, :popup => true, :target => "_blank", :style => "color:#0000AA", :id => "terms_accepted_label").html_safe + " zu.</span>".html_safe, :style=>"font-size: 18px;" %>
+        </p>
+				
+        <p>
+	</p>
+        	<%= submit_tag 'Importieren', {:onclick => "javascript:return checkForm()", :id=>"upload_id", :style=>"font-size: 16px;"} %><span id="submit_status" style="display:none;"><img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> Bitte warten... </span><span id="submit_hint"></span>
+   			
+    
+    <% end %> 
+
+</div>
+
+<% content_for :sidebar do %>
+			<div style="float:right; color:#333333; font-size:12px;">Vidmap kann problemlos jegliche Youtube Videos, inklusive Videobeschreibung, einbinden. Bitte beachte, dass eine Vidmap nicht mehr funktionst&uuml;chtig ist, wenn das zugeh&ouml;rige Video auf Youtube gel&ouml;scht werden sollte.</div>
+<% end %>
+
+<script>
+
+var hint_start = "F&uuml;ge hier bitte den Link zu dem gew&uuml;nschten Youtube-Video ein. Also z.B. <b>http://www.youtube.com/watch?v=1nb5EUMqFC0</b> oder einfach nur <b>1nb5EUMqFC0</b>. Du kannst auch einen <b>Suchbegriff</b> eingeben.";
+var hint_ready = "";
+var hint_error = "<b>Kein Ergebnis f&uuml;r diese Eingabe!</b><br>" + hint_start; 
+var video_link_changed = false;
+var check_video_link_timer = false
+
+disable_controls(true);
+check_video_link();
+
+
+function schedule_video_link_check() {
+	
+	if (!check_video_link_timer) {
+		check_video_link_timer = window.setTimeout("stop_video_link_check()", 2000);
+		window.setTimeout("check_video_link()", 500);
+	} else {
+		video_link_changed = true;
+	}
+	
+}
+
+function stop_video_link_check() {
+	check_video_link_timer = false;
+	if (video_link_changed) check_video_link();
+}
+
+function check_video_link(){
+	
+	video_link_changed = false;
+	
+	if ($("#video_link")[0].value.trim() == "") {
+		$("#search").html('<img style="vertical-align:middle" width="32px" height="32px" src="/images/import/question.gif"/>');
+		$("#hint").html(hint_start);
+		disable_controls(true);
+		return
+	}
+	
+	$("#search").html('<img style="vertical-align:middle" width="20px" height="20px" src="/images/ajax-loader.gif"/>');
+	disable_controls(true);
+	
+	new Ajax.Request('/web/get_youtube_video_data', {
+		 parameters: {search: $("#video_link")[0].value},
+		 options: { asynchronous: true },
+		 onFailure: function(error) {
+		 	$("#search").html('<img style="vertical-align:middle" width="32px" height="32px" src="/images/import/error.gif"/>');
+			$("#hint").html(hint_error);
+			$("#preview").html("");
+			disable_controls(true);
+		 },
+		 onSuccess: function(transport) {
+				result = transport; //transport.responseText.evalJSON();
+				if (result.key) {
+				
+					$("#search").html('<img style="vertical-align:middle" width="32px" height="32px" src="/images/import/ready.gif"/>');
+					$("#hint").html(hint_ready);
+					disable_controls(false);
+					
+					$("#preview").html('<b>Preview:</b><br><img style="vertical-align:middle" src="http://img.youtube.com/vi/'+result.key+'/1.jpg"/>');
+						
+					if (result.public) {
+						$("#name").value = result.video_information.entry[0].title.$t;
+					} else {
+						$("#name").value = "";
+					}
+					
+				} else {
+					$("#search").html('<img style="vertical-align:middle" width="32px" height="32px" src="/images/import/error.gif"/>');
+					$("#hint").html(hint_error);
+					$("#preview").html("");
+					disable_controls(true);
+				}
+		 }
+	});
+}
+
+function disable_controls(disable) {
+	$("#name").disabled = disable;
+	$("#movement_type").disabled = disable;
+	$("#video_public_1").disabled = disable;
+	$("#video_public_0").disabled = disable;
+	$("#video_public_label_0").disabled = disable;
+	$("#video_public_label_1").disabled = disable;
+	$("#terms_accepted").disabled = disable;
+	$("#terms_accepted_label").disabled = disable;
+	$("#upload_id").disabled = disable;
+	$("#preview").html("");
+}
+
+function checkForm(){
+	
+	$("#upload_id").hide();
+	
+	if ($("#video_link")[0].value.length > 0 && $("#name")[0].value.length > 0 && document.getElementById("terms_accepted").checked) {
+		$("#submit_status").show();
+		$("#submit_hint").html("");
+		return true
+	} else {
+		$("#submit_status").hide();
+		$("#submit_hint").html('<i> F&uuml;lle zuerst alle Felder aus und best&auml;tige die Nutzungsbedingungen.</i>');
+		$("#upload_id").show();
+		return false;
+	}
+}
+</script>

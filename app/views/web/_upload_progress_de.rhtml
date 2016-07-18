@@ -1,0 +1,9 @@
+<div><%
+case upload_item.transcoder_state
+	when 0 %>"<%= upload_item.name %>" wartet auf seine abschlie&szlig;ende Verarbeitung. <img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> <noscript><%= link_to "aktualisieren", :controller => "web", :action => "videos" %></noscript> <%
+	when -1 	%>Upload von "<%= upload_item.filename %>" fehlgeschlagen. Das Video "<%= upload_item.name %>" konnte nicht verarbeitet werden (Fehlercode: <%= upload_item.code %>).<%
+	when 1 %>"<%= upload_item.name %>" erscheint in wenigen Momenten in deiner Videoliste. <img id="upload_indicator" style="width:20px;height:20px;vertical-align:middle;" src="/images/ajax-loader.gif"/> <noscript><%= link_to "aktualisieren", :controller => "web", :action => "videos" %></noscript><%
+	when 2 %>"<%= upload_item.name %>" ist nun in deiner Videoliste abrufbar.<%
+	else	 %>Dein Video "<%= upload_item.name %>" konnte nicht verarbeitet werden (Fehlercode: <%= upload_item.code %>).<%
+end 
+%></div>

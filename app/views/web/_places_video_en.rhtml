@@ -1,0 +1,28 @@
+<h1>
+<% if @hasRoute && (@route.start_locality_en && @route.start_country_en || @route.end_locality_en && @route.end_country_en) %>
+		<i>
+		<% if @route.start_locality_en == @route.end_locality_en %>
+			<div>Video captured in  <b><%=@route.start_locality_en %></b> (<%=@route.start_country_en %>)</div>
+			
+		<% elsif @route.start_locality_en && !@route.end_locality_en %>
+			<div>Video captured in  <b><%=@route.start_locality_en %></b> (<%=@route.start_country_en %>)</div>
+			
+		<% elsif !@route.start_locality_en && @route.end_locality_en %>
+			<div>Video captured in  <b><%=@route.end_locality_en %></b> (<%=@route.end_country_en %>)</div>
+			
+		<% else %>
+				<% if @route.start_country_en == @route.end_country_en %>
+						<div>Video captured from <b><%=@route.start_locality_en %></b> to <b><%=@route.end_locality_en %></b> (<%=@route.start_country_en %>)</div>
+				<% else %>
+						<div>Video captured from <b><%=@route.start_locality_en %></b> (<%=@route.start_country_en %>) to <b><%=@route.end_locality_en %></b> (<%=@route.end_country_en %>)</div>
+				<% end %>
+		<% end %>
+		</i>
+<% end %>
+</h1>
+
+<h2>
+<% if @hasRoute && @route.start_placemark_en.to_s[0,1] != "{" && @route.end_placemark_en.to_s[0,1] != "{" && @route.start_placemark_en && @route.end_placemark_en %>
+<%= @route.start_placemark_en %> -> <%= @route.end_placemark_en %>
+<% end %>
+</h2>

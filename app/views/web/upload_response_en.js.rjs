@@ -1,0 +1,2 @@
+page.replace_html :'vm_upload_response', flash[:upload_result]
+page.visual_effect :highlight, 'vm_upload_response'

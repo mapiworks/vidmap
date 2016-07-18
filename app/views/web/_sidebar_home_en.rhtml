@@ -1,0 +1,16 @@
+	<% get_sidebar_listing_data %>
+
+	<div class="sidebar_titles">
+	
+		<b style="text-decoration:none; color:#777777;">Top Places</b>
+		<p></p>
+		
+		<div style="text-align:justify; line-height:1.4em; width:200px; color:#777777;"><%= raw generateTagCloud(@cities, "city") %></div>
+		
+		<p></p>
+		<b style="text-decoration:none; color:#777777;">Types</b>
+		<p></p>
+		
+		<div style="text-align:justify; line-height:1.4em; width:200px; color:#777777;"><%= raw generateTagCloud(@movements, "movement", @vm_string_table[:movement_types]) %></div>
+		
+	</div>	

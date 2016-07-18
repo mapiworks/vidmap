@@ -1,0 +1,55 @@
+<% if @hasRoute %>
+	
+	<input type="hidden" name="embed_youtube" id="embed_youtube" value='<%= @video.youtube %>'/>
+	
+	<% if @isPublic %>
+		<!--
+		<div class="sidebar_items"><b>Embed:</b> <input  style="background-color:#CCCCCC; font-size:10px" name="embed_code" type="text" size="24" id="embed_code" readonly="" value='<object width="700" height="295" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="http://www.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=player&amp;language_id=en&amp;vmdesign=$DESIGN"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param value="transparent" name="wmode"></param><param name="flashVars" value="routes=[<%= @route.id.to_s %>]"/><embed src="http://www.vidmap.de/api?vmkey=<%= @api_key %>&amp;vmapp=player&amp;language_id=en&amp;<%= @video.youtube ? "vmdesign=youtube" : '' %>" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="routes=[<%= @route.id.to_s %>]" wmode="transparent" allowscriptaccess="always" allowfullscreen="false" width="700" height="295"></embed></object>' onclick="javascript:document.getElementById('embed_code').focus(); document.getElementById('embed_code').select();"/>
+		-->
+		
+		<div class="sidebar_items"><b>Embed:</b> <input  style="background-color:#CCCCCC; font-size:10px" name="embed_code" type="text" size="24" id="embed_code" readonly="" value='<iframe src="http://<%= @top_level_domain %>.vidmap.de/web/embed?video_id=<%= @video.id %>&amp;vmkey=<%= @private_api_key %>" style="position: relative; width: 640px; height: 375px; border: 0"></iframe>' onclick="javascript:document.getElementById('embed_code').focus(); document.getElementById('embed_code').select();"/>
+		
+	<% elsif @isOwner %>	
+		
+		<% if @private_api_key %>
+			
+			<!--
+			<div class="sidebar_items"><b>Embed:</b><input  style="background-color:#CCCCCC; font-size:10px" name="embed_code" type="text" size="24" id="embed_code" readonly="" value='<object width="700" height="295" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="http://www.vidmap.de/api?vmkey=<%= @private_api_key %>&amp;vmapp=player&amp;language_id=en&amp;<%= @video.youtube ? "vmdesign=youtube" : '' %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param value="transparent" name="wmode"></param><param name="flashVars" value="routes=[<%= @route.id.to_s %>]"/><embed src="http://www.vidmap.de/api?vmkey=<%= @private_api_key %>&amp;vmapp=player&amp;language_id=en&amp;<%= @video.youtube ? "vmdesign=youtube" : '' %>" type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" flashVars="routes=[<%= @route.id.to_s %>]" wmode="transparent" allowscriptaccess="always" allowfullscreen="false" width="700" height="295"></embed></object>' onclick="javascript:document.getElementById('embed_code').focus(); document.getElementById('embed_code').select();"/>
+			<br>This video can only be embedded on <%= link_to "selected", {:controller => 'web', :action => 'account'}%> websites.</div>
+			-->
+			
+			<div class="sidebar_items"><b>Embed:</b> <input  style="background-color:#CCCCCC; font-size:10px" name="embed_code" type="text" size="24" id="embed_code" readonly="" value='<iframe src="http://<%= @top_level_domain %>.vidmap.de/web/embed?video_id=<%= @video.id %>&amp;vmkey=<%= @private_api_key %>" style="position: relative; width: 640px; height: 375px; border: 0"></iframe>' onclick="javascript:document.getElementById('embed_code').focus(); document.getElementById('embed_code').select();"/>
+			
+					
+		<% else %>
+			<div class="sidebar_items">Dieses Video ist geschützt. Benutze die <%= link_to "Einstellungen", {:controller => 'web', :action => 'account'}%> um Ausnahmen einzustellen.</div>
+		<% end %>
+			
+	<% end %>
+	
+	<div id="layouts" style="border:solid 1px #999999; background-color: #FEEEAE; display:none">
+		
+		<div style="font-size:13px; font-weight:bold; margin:5px">Style:</div>
+		<div id="layouts_style" style="position:relative; height:70px">
+			<span id="style_LR" style="cursor:pointer; position:absolute; border:0px; width:72px; height:42px; left:5px; background-color:#FF0000" onclick="activate_style_panel('style_LR')">
+				<span style="position:absolute; border:solid 1px; width:35px; height:40px; left:0px; font-size:10px; text-align:center;"></span>
+				<span style="position:absolute; border:solid 1px; width:35px; height:40px; left:36px; font-size:10px; text-align:center;"></span>
+			</span>
+			
+			<span id="style_TD" style="cursor:pointer; position:absolute; border:0px; width:47px; height:62px; left:90px; background-color:#FF0000" onclick="activate_style_panel('style_TD')">
+				<span style="position:absolute; border:solid 1px; width:45px; height:30px; left:0px; font-size:10px; text-align:center;"></span>
+				<span style="position:absolute; border:solid 1px; width:45px; height:30px; left:0px; top: 31px; font-size:10px; text-align:center;"></span>
+			</span>
+			
+		</div>
+		
+		<div style="font-size:13px; font-weight:bold; margin:5px">Size:</div>
+		<div id="layouts_size" style="position:relative; height:80px">
+			<span id="size_1" style="cursor:pointer; position:absolute; border:solid 1px; width:45px; height:35px; left:5px; font-size:10px; text-align:center; background-color:#FF0000" onclick="activate_size_panel('size_1')">480x198</span>
+			<span id="size_2" style="cursor:pointer; position:absolute; border:solid 1px; width:50px; height:40px; left:55px; font-size:10px; text-align:center; background-color:#FF0000" onclick="activate_size_panel('size_2')">640x264</span>
+			<span id="size_3" style="cursor:pointer; position:absolute; border:solid 1px; width:58px; height:45px; left:111px; font-size:10px; text-align:center; background-color:#FF0000" onclick="activate_size_panel('size_3')">725x299</span>
+		</div>
+		
+	</div>
+	
+<% end %>
